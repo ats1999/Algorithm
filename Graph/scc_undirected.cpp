@@ -31,7 +31,7 @@ class Graph{
          * @param v an integer: representing a node in the graph.
          * @param biDir a bool: true denotes bidirectional edge, unidirectional otherwise.
          */
-		void addEdge(int u,int v,bool biDir=false){
+		void addEdge(int u,int v,bool biDir=true){
             adj[u].push_back(v);
             if(biDir)
                 adj[v].push_back(u);
@@ -91,15 +91,19 @@ class Graph{
         }
 };
 int main(){
-	Graph g(5);
-	g.addEdge(0,1);
-	g.addEdge(0,2);
-	g.addEdge(1,0);
-	g.addEdge(1,2);
-	g.addEdge(2,0);
+	Graph g(6);
 	g.addEdge(2,1);
+	g.addEdge(5,3);
+	g.addEdge(5,1);
 	g.addEdge(3,4);
-	g.addEdge(4,3);
+	g.addEdge(3,1);
+	g.addEdge(5,4);
+	g.addEdge(4,1);
+	g.addEdge(5,2);
+	g.addEdge(4,2);
+	cout<<"Graph is ..";
+	g.print();
+	cout<<"Components are..";
 	g.bfs();
 	return 0;
 }
