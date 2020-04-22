@@ -1,12 +1,13 @@
 //============================================================================
-// Name        : mst_kruskal.cpp
-// Author      : Rahul
+// Name        : weighted_graph.cpp
+// Author      : Rahul (ATS)
 // Version     : 2.0
-// Copyright   : Everyone freely can use and distribute it.
-// Description : Find MST of given weighted and connected graph\
-// Note		   : 0 based indexing used in this graph.
-// T.C		   : 
+// cpp version : c++ 14
+// Copyright   : Everyone can freely use and distribute it. 
+// Description : Repersention of weighted graph.
+// Note 	   : 0 based indexing used in this graph
 //============================================================================
+
 #include<bits/stdc++.h>
 using namespace std;
 /**
@@ -57,23 +58,13 @@ class Graph{
                 cout<<endl;
             }
         }
-        /**
-		* Function to find MST
-		* @param g a Graph.
-		*/
-		void kruskalMST(Graph g){
-			sort(g.adj);
-			g.print();
-		}
 };
-
 int main(){
 	Graph g(6);
 	g.addEdge(1,5,8);
 	g.addEdge(1,2,4);
 	g.addEdge(4,2,78);
 	g.addEdge(3,4,78);
-	kruskalMST(g);
 	g.print();
 	return 0;
 }

@@ -51,9 +51,8 @@ class Graph{
             // for every vertex
             for(int i=1;i<this->v;i++){
                 // every connected edge from vertex
-                cout<<i<<"-> ";
                 for(int node:adj[i]){
-                    cout<<node<<" ";
+                    cout<<i<<"->"<<node<<"\t";
                 }
                 cout<<endl;
             }
