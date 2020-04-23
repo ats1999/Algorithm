@@ -8,54 +8,25 @@
 //============================================================================
 #include<bits/stdc++.h>
 using namespace std;
-/**
-* This class repersent tree.
-* @member data: an integer - data of the node
-* @left   pointer: a Node - repersent left link of tree
-* @right   pointer: a Node - repersent left link of tree
-* @Node() constructor: initialize tree with given values.
-*/
-
-class Node {
-    public:
-        int data;
-        Node *left;
-        Node *right;
-        
-        Node(int d) {
-            data = d;
-            left = NULL;
-            right = NULL;
-        }
-};
-	
-/**
-* This function creates a new node and return it.
-*/
-Node* newNode(int data){
- 	Node* newNode=new Node(data);
- 	return newNode;
-}
-
-/**
-* This function insert a node into tree.
-*/
-Node* insert(Node* root,int data){
-	// if tree is empty
-	if(root==NULL)
-		return newNode(data);
-
-	// tree is not empty
-	if(root->data>data)
-		root->left=insert(root->left,data);
-	
-	root->right=insert(root->right,data);
-}
-	// driver code
+#include "tree.h"
+#include "insert.h"
+#include "in_order.h"
+#include "pre_order.h"
+#include "post_order.h"
+// driver code
 int main(){
-	Node *root=NULL;
-	root=newNode(5);
-	cout<<root->data;
+	Tree *root=NULL;
+	
+	root=insert(root,45);
+	insert(root,50);
+	insert(root,15);
+	insert(root,20);
+	insert(root,47);
+	in_order(root);
+	cout<<endl;
+	pre_order(root);
+	cout<<endl;
+	post_order(root);
 	return 0;
 }
 

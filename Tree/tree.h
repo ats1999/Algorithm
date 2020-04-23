@@ -1,13 +1,12 @@
 //============================================================================
-// Name        : inOrder.cpp
+// Name        : tree.h
 // Author      : Rahul (ATS)
 // Version     : 2.0
 // cpp version : c++ 14
 // Copyright   : Everyone can freely use and distribute it.
-// Description :Tree traversal by pre order traversal algorithm.
+// Description : Template for all code releted to tree.
 //============================================================================
-#include<bits/stdc++.h>
-using namespace std;
+
 /**
 * This class repersent tree.
 * @member data: an integer - data of the node
@@ -15,37 +14,24 @@ using namespace std;
 * @right   pointer: a Node - repersent left link of tree
 * @Node() constructor: initialize tree with given values.
 */
-class Node {
+
+class Tree {
     public:
         int data;
-        Node *left;
-        Node *right;
-        Node(int d) {
+        Tree *left;
+        Tree *right;
+        
+        Tree(int d) {
             data = d;
             left = NULL;
             right = NULL;
         }
 };
-/**
-* This function print the pre order traversal of tree.
-* @param root: a Node - pointer to head of tree.
-*/
-void in_order(Node *root) {
-    // traverse left
-    if(root->left!=NULL)
-        in_order(root->left);
-        
-    // visit node
-    cout<<root->data<<" ";
-        
-    // traverse right
-    if(root->right!=NULL)
-        in_order(root->right);
-        
-}
-// driver code
-int main(){
 
-	return 0;
-}
+
+
+
+
+
+
 
