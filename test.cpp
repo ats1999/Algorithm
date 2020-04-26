@@ -6,24 +6,20 @@
 // Copyright   : Everyone can freely use and distribute it.
 // Description : This file is only for testing........test... anything you want. 
 //============================================================================
-#include <bits/stdc++.h> 
-using namespace std; 
-#include "Graph/disj_set.h"
+#include <bits/stdc++.h>
 
-int main() 
-{ 
-	DisjSet d(5);
-	int num1,num2;
-	while(1){
-		cout<<"Enter\n";
-		cin>>num1>>num2;
-		if(d.merge(num1,num2)){
-			
-		}else
-		cout<<"\n cycle detected\n";
-		d.print();
-		d.printSize();
-	}
-	
-} 
+using namespace std;
+
+// Complete the minimumAbsoluteDifference function below.
+int minimumAbsoluteDifference(vector<int> arr) {
+
+}
+
+int main()
+{
+ vector<int>v{-2,2,4};   
+ 	
+	cout<<min(5,abs(-7-9));
+    return 0;
+}
 
