@@ -26,7 +26,8 @@
 *
 * find(int num)	    : returns parent of the given element.
 * getSize()			: returns size of set. (constant).
-* isUnion()			: returns true and make union if both numbers belongs to different false otherwise/
+*
+* isUnion()			: returns true and make union if both numbers belongs to different set, false otherwise/
 *					- isUnion(int num1,int num2)
 */
 //template<typename T>

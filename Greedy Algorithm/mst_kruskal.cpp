@@ -5,6 +5,7 @@
 // Copyright   : Everyone freely can use and distribute it.
 // Description : Find MST of given weighted and connected graph\
 // Note		   : 0 based indexing used in this graph.
+// 			   - Edges are bi-directional
 // T.C		   : 
 //============================================================================
 #include<bits/stdc++.h>
@@ -69,11 +70,26 @@ class Graph{
 
 int main(){
 	Graph g(6);
-	g.addEdge(1,5,8);
-	g.addEdge(1,2,4);
-	g.addEdge(4,2,78);
-	g.addEdge(3,4,78);
+	// store edge connectivity information
+	// pair is consist of a pair of connected edge and their weight
+	vector<pair<pair<int,int>,int>edge;
+	
+	// push edge information
+	// edges are bidirectional
+	edge.push_back(make_pair(make_pair(1,2),1));
+	edge.push_back(make_pair(make_pair(2,3),2));
+	edge.push_back(make_pair(make_pair(4,5),3));
+	edge.push_back(make_pair(make_pair(6,7),3));
+	edge.push_back(make_pair(make_pair(1,4),4));
+	edge.push_back(make_pair(make_pair(2,5),4));
+	edge.push_back(make_pair(make_pair(4,7),4));
+	edge.push_back(make_pair(make_pair(3,5),5));
+	edge.push_back(make_pair(make_pair(2,4),6));
+	edge.push_back(make_pair(make_pair(3,6),6));
+	edge.push_back(make_pair(make_pair(5,7),7));
+	edge.push_back(make_pair(make_pair(5,6),8));
+	
+	// call the function
 	kruskalMST(g);
-	g.print();
 	return 0;
 }

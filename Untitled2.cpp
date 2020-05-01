@@ -26,30 +26,35 @@ using namespace std;
 typedef vector<int> vi;
 typedef vector<vector<int>> vvi;
 // vector pair
-typedef vector<pair<int,int>> vp;
+typedef vector<pair<int,int>,int> vp;
 typedef vector<string> vs;
 /// pair
 typedef pair<int,int> pi;
 
+bool comp(pair<pair<int,int>,int>vp1,pair<pair<int,int>,int>vp2){
+	return vp1.sc<vp2.sc;
+}
 // driver code
 int main(){
 	ios::sync_with_stdio(false);
     cin.tie(nullptr);
     
-	vp test;
-	test.pb(mp(4,5));
-	test.pb(mp(1,7));test.pb(mp(8,6));test.pb(mp(0,78));test.pb(mp(0,565));
+	vector<pair<pair<int,int>,int>>vpi;
+		vpi.pb(mp(mp(4,2),78));
+	vpi.pb(mp(mp(3,4),56));
+	vpi.pb(mp(mp(1,5),8));
+	vpi.pb(mp(mp(1,2),100));
+
 	
-	for(auto it:test){
-		pf(it.fr); pf(it.sc);
-		line;
+	
+	for(auto it:vpi){
+		cout<<it.fr.fr<<"->"<<it.fr.sc<<" ("<<it.sc<<")"<<endl;
 	}
 	
-	line;line;
-	sort(test.bg,test.en);
-	for(auto it:test){
-		pf(it.fr); pf(it.sc);
-		line;
-	}
+	line; line; line; line;
 	
+	sort(vpi.bg,vpi.en,comp);
+	for(auto it:vpi){
+		cout<<it.fr.fr<<"->"<<it.fr.sc<<" ("<<it.sc<<")"<<endl;
+	}
 }
