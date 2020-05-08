@@ -19,38 +19,35 @@ using namespace std;
 * @param l: size of left[].
 * @param r: size of right[].
 */
-void merge(int ari[],int left[],int right[],int size,int l,int r){
+void merge(int ar[],int left[],int right[],int size,int l,int r){
 	int i=0,j=0,k=0;
-	int ar[5];
 	// merge two array
+	
 	// at every iteration, insert minimum first element of the both array
+	// Once any array fully traversed then stop iteration
 	for(;i<size;i++){
-		
 		if(j<l&&k<r){
 			if(left[j]<right[k]){
-				
 				ar[i]=left[j];
-				cout<<"i j k: "<<i<<" "<<j<<" "<<k<<endl;
-				cout<<"Left[]: j"<<left[j]<<" "<<ar[i]<<endl;
 				j++;
 			}else{
 				ar[i]=right[k];
-				cout<<"i j k: "<<i<<" "<<j<<" "<<k<<endl;
-				cout<<"right[]: k"<<right[k]<<" "<<ar[i]<<endl;
 				k++;
 			}
 		}else break;
 	}
 	
-	cout<<"Breaked\n";
 	// after insertion might be one array left with some element then insert it into ar[]
+	
+	// if left array has some element then insert into ar[]
 	for(;j<l;j++){
 		ar[i]=left[j];
 		i++;
 	}
-		
+	
+	// if right array has some element then insert it into ar[]	
 	for(;k<r;k++){
-		ar[i]=left[k];
+		ar[i]=right[k];
 		i++;
 	}
 } // end of merge()
@@ -61,23 +58,26 @@ void merge(int ari[],int left[],int right[],int size,int l,int r){
 * @param size: size of ar[]. 
 */
 void mergeSort(int ar[],int size){
-	// base case
+	// If ar is large enough then only processed further...
 	if(size<=1)
 		return;
 	
 	// make two auxilary array and store half of the lements in both array
 	int mid=size>>1; // mid=size/2
-	int left[mid];
-	int right[size-mid];
+	// left part of the array
+	int left[mid]; 
+	// rght part of the array
+	int right[size-mid]; 
 	
 	// copy element in both array from ar[]
-	int i=0;
+	int i=0,j=0;
 	for(;i<mid;i++)
 		left[i]=ar[i];
 		
-	for(;i<size;i++)
-	 	right[i]=ar[i];
-	
+	for(;i<size;i++){
+		right[j]=ar[i];
+		j++;
+	}
 	// recursively call mergeSort() for both array for further division
 	mergeSort(left,mid);
 	mergeSort(right,size-mid);
@@ -94,11 +94,16 @@ int main(){
 	ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout<<"Start\n";
-    int ar[5],left[2]={1,8},right[3]={2,45,65};
+    int ar[10]={2,8,89,0,123,12,1,4,6,2};
     
-    merge(ar,left,right,5,2,3);
+    cout<<"Input...\n";
+    for(int i=0;i<10;i++)
+    	cout<<ar[i]<<" ";
+    	
+    mergeSort(ar,10);
     
-    for(int i=0;i<5;i++)
+    cout<<"\n\n\nOutput...\n";
+    for(int i=0;i<10;i++)
     	cout<<ar[i]<<" ";
 	return 0;
 }

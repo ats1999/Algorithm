@@ -73,9 +73,8 @@ void merge(int ar[],int left[],int right[],int size,int l,int r){
 }
 // driver code
 int main(){
-	cout<<"Start\n";
-    int ar[]={1,2,3};
-    int i=0;
-    cout<<endl;
+	int mid=5;
+	int ans=mid>>1;
+	cout<<mid<<" "<<ans;
 	
 }
