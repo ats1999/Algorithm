@@ -45,9 +45,9 @@ class DisjSet{
 	
 			//set all values that means, it's parent is itself
 			for(int i=0;i<=n;i++)
-				set[i]=i;
+				set[i]=-1;
 			
-			//set all size of all elements to zero.
+			//set all set size of all elements to zero.
 			for(int i=0;i<=n;i++)
 				size[i]=0;
 		}
@@ -81,21 +81,26 @@ class DisjSet{
 		*/
 		bool areInSameSet(int num1,int num2){
 			// both belongs to the same set.
-			if(set[num1]==set[num2])
+			if(this->set[num1]==this->set[num2])
 				return true;
 				
-			// both belongs to the different set.
+			// both belongs to the different this.set.
 			return false;
 		}
 		
 		/**
 		* This function returns parent of the given element.
-		* @param elem: an element - whose parent is to be find.
+		* @param elem: an element - whose set is to be find.
 		* @return : root of the given element
 		*/
-		int find(int elem){
-			return set[elem];
-		}
+		// A utility function to find the subset of an element i  
+		int find(int i)  
+			{  
+  			  if (this->set[i] == -1)  
+       		 	 return i;  
+    		  return find(this->set[i]);  
+			}  
+  
 		
 		/**
 		* Merges together the sets that the given two elements belong to. 
@@ -108,22 +113,21 @@ class DisjSet{
 		* @retrun bool: true denotes that both numbers belongs to different sets and they are merged and false denotes that both number belongs to the same set. 
 		*/
 		bool isUnion(int index1,int index2){
-			// if both already belongs to the same set
-			if(find(index1)==find(index2))
-				return false;
-				
-			// if both belongs to different set.
-			// make parent of both whose size is greater.
-			if(size[find(index1)]>size[find(index2)]){
-				set[index2]=find(index1);
-				size[find(index1)]++;
-			}
-			else{
-				set[index1]=find(index2);
-				size[find(index2)]++;
-			}
-			return true;	
-		}
+			// if both already belongs to the same this.set
+			int xset = find(index1);  
+    		int yset = find(index2);  
+    		if(xset != yset) 
+    		  { 
+				cout<<"Included: "<<index1<<" "<<index2<<endl;
+       			this->set[xset] = yset;  
+       			return true;
+   			  } 
+			   else
+			     {
+				   cout<<"Not Included: "<<index1<<" "<<index2<<endl;
+					return true;	
+				}
+		   }
 		
 		/**
 		* This function returns size of set. 

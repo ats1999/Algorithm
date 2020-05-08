@@ -4,6 +4,7 @@
 // Version     : 2.0
 // Copyright   : Everyone freely can use and distribute it.
 // Description : To check weather a number is prime or not
+// T.C 		   - O(n^1/2)
 //============================================================================
 
 

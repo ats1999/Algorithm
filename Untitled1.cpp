@@ -31,25 +31,41 @@ typedef vector<string> vs;
 /// pair
 typedef pair<int,int> pi;
 
+
+// A utility function to find the subset of an element i  
+int find(int parent[], int i)  
+{  
+    if (parent[i] == -1)  
+        return i;  
+    return find(parent, parent[i]);  
+}  
+  
+// A utility function to do union of two subsets  
+void Union(int parent[], int x, int y)  
+{  
+    int xset = find(parent, x);  
+    int yset = find(parent, y);  
+    if(xset != yset) 
+    {  
+    	cout<<"Included "<<x<<" "<<y<<endl;
+        parent[xset] = yset;  
+    }  else cout<<"Not Included "<<x<<" "<<y<<endl;
+}  
+
 // driver code
 int main(){
 	ios::sync_with_stdio(false);
     cin.tie(nullptr);
     
-	vp test;
-	test.pb(mp(1,5),8);
-	test.pb(mp(1,2),4);test.pb(mp(4,2),78);test.pb(mp(3,4),78);
-	
-	for(auto it:test){
-		pf(it.fr); pf(it.sc);
-		line;
-	}
-	vector<int,int>l;
-	line;line;
-	sort(test.bg,test.en);
-	for(auto it:test){
-		pf(it.fr); pf(it.sc);
-		line;
-	}
-	
+// Allocate memory for creating V subsets  
+    int parent[8]={0};  
+  
+    for(int i=0;i<8;i++)
+    	parent[i]=-1;
+    int src []={1,2,4,6,1,2,4,3,2,3,5,5};
+	int dest[]={2,3,5,7,4,5,7,5,4,6,7,6};
+		
+		for(int i=0;i<12;i++){
+			Union(parent,src[i],dest[i]);
+		}
 }

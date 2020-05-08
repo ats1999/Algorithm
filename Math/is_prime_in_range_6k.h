@@ -1,13 +1,21 @@
 //============================================================================
-// Name        : prime_6k.cpp
-// Author      : Rahul
+// Name        : is_prime_in_range_6k.h
+// Author      : Rahul (ATS)
 // Version     : 2.0
-// Copyright   : Everyone freely can use and distribute it.
-// Description : Count prime number less or equals to a value n.
+// cpp version : c++ 14
+// Copyright   : Everyone can freely use and distribute it.
+// Description : Heaer of prime function. 
+// T.C         : O(n^1/2)
+// A.S         : O(1)
 //============================================================================
-#include<bits/stdc++.h>
-using namespace std;
+
+
 // use the concept that every primt number is of form 6k+1 or 6k-1 except 2 and 3.
+/**
+* Funstion to check wheather a number is prime or not. 
+* @param n: number to check
+* @return true if number is prime, false otherwise.
+*/
 bool isPrime(unsigned long long int n) 
 { 
     // Corner cases 
@@ -26,7 +34,10 @@ bool isPrime(unsigned long long int n)
 } 
  
 /*
- * Complete the primeCount function below.
+ * Count primt number in a given range. 
+ * Use 6k-1 and 6k+1 technique. 
+ * @param n : given range
+ * @return count of primes numbers in the given range. 
  */
 int primeCount(unsigned long long int n) {
     // case n=1
@@ -59,7 +70,4 @@ int primeCount(unsigned long long int n) {
         k++;
     }
     return ans;
-}
-int main(){
-		cout<<"Total: "<<primeCount(100);
 }

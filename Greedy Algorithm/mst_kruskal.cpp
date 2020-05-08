@@ -10,6 +10,12 @@
 //============================================================================
 #include<bits/stdc++.h>
 using namespace std;
+#include "../Graph/disj_set.h"
+// utility function to sort graph using non-decreasing order of their weight
+bool comp(pair<pair<int,int>,int> p1,pair<pair<int,int>,int> p2){
+	return p1.second<p2.second;
+}
+
 /**
  * This class represents Graph. 
  * It assume that you are implementing graph which have node starting from 1.
@@ -20,6 +26,8 @@ using namespace std;
  *                 -1: addEdge(int u,int v,bool biDir);
  *                 -2: print();
  */
+ 
+
 class Graph{
 	int v; // number of vertices
 	vector<pair<int,int>>*adj;
@@ -60,20 +68,46 @@ class Graph{
         }
         /**
 		* Function to find MST
-		* @param g a Graph.
+		* @param edge : E of any Graph.
+		* @pram n: size of G
+		* @return : Minimum MST cost. 
 		*/
-		void kruskalMST(Graph g){
-			sort(g.adj);
-			g.print();
+		int kruskalMST(vector<pair<pair<int,int>,int>>edge,int n){
+			// to store minimum MST cost
+			int sum=0;
+			// sort edges according to their weight
+			sort(edge.begin(),edge.end(),comp);
+			cout<<"After sorting\n";
+			for(auto it:edge){
+				cout<<it.first.first<<"->"<<it.first.second<<" "<<it.second<<endl;
+			}
+			// create a disjoint set to detect cycle. 
+			DisjSet set(n);
+			// for every edge in set E check considering that edge makes a cycle or not.
+			// if consedring that edge is making a cycle then do not include it
+			// otherwise include it. 
+			for(auto it:edge){
+				n--;
+				if(set.isUnion(it.first.first,it.first.second)){
+					sum=sum+it.second; // add weight of current edge to sum. 
+					// if n-1 edge included in MST then no further edge can be inserted 
+					cout<<it.second<<endl;
+				//	if(!n)
+				//		break;
+				}
+			}
+			return sum; 
 		}
 };
 
 int main(){
-	Graph g(6);
 	// store edge connectivity information
 	// pair is consist of a pair of connected edge and their weight
-	vector<pair<pair<int,int>,int>edge;
+	vector<pair<pair<int,int>,int>>edge;
 	
+	// to avoid doubling vector each time
+	int n=100; // number of edge
+	edge.reserve(n);
 	// push edge information
 	// edges are bidirectional
 	edge.push_back(make_pair(make_pair(1,2),1));
@@ -88,8 +122,10 @@ int main(){
 	edge.push_back(make_pair(make_pair(3,6),6));
 	edge.push_back(make_pair(make_pair(5,7),7));
 	edge.push_back(make_pair(make_pair(5,6),8));
-	
+		
 	// call the function
-	kruskalMST(g);
+	// 7 is number of vetices
+	Graph g(0);
+	cout<<"\n"<<g.kruskalMST(edge,7);
 	return 0;
 }

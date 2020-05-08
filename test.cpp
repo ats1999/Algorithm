@@ -30,26 +30,52 @@ typedef vector<pair<int,int>> vp;
 typedef vector<string> vs;
 /// pair
 typedef pair<int,int> pi;
-
+void print(int ar[],int n){
+	for(int i=0;i<n;i++){
+		cout<<ar[i]<<" ";
+	}
+	cout<<endl;
+}
+void merge(int ar[],int left[],int right[],int size,int l,int r){
+	int i=0,j=0,k=0;
+	cout<<"Left: ";
+	print(left,1);
+	cout<<"Right: ";
+	print(right,1);
+	// merge two array
+	// at every iteration, insert minimum first element of the both array
+	for(;i<size;i++){
+		
+		if(j<l&&k<r){
+			if(left[j]<right[k]){
+				ar[i]=left[j];
+				cout<<"Assigning: left "<<left[j]<<endl;
+				j++;
+			}else if(k<r){
+				ar[i]=right[k];
+				cout<<"Assigning: right "<<right[k]<<endl;
+				k++;
+			}
+		}else break;
+	}
+	
+	// after insertion might be one array left with some element then insert it into ar[]
+	for(;j<l;j++)
+		{
+			cout<<"Assigning: left "<<left[j]<<endl;
+			ar[i]=left[j];
+		}
+		
+	for(;k<r;k++){
+	cout<<"Assigning: right "<<right[k]<<endl;
+		ar[i]=left[k];
+	}
+}
 // driver code
 int main(){
-	ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-    
-	vp test;
-	test.pb(mp(4,5));
-	test.pb(mp(1,7));test.pb(mp(8,6));test.pb(mp(0,78));test.pb(mp(0,565));
-	
-	for(auto it:test){
-		pf(it.fr); pf(it.sc);
-		line;
-	}
-	
-	line;line;
-	sort(test.bg,test.en);
-	for(auto it:test){
-		pf(it.fr); pf(it.sc);
-		line;
-	}
+	cout<<"Start\n";
+    int ar[]={1,2,3};
+    int i=0;
+    cout<<endl;
 	
 }
