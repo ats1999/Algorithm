@@ -76,5 +76,4 @@ int main(){
 	int mid=5;
 	int ans=mid>>1;
 	cout<<mid<<" "<<ans;
-	
 }

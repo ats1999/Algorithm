@@ -27,18 +27,30 @@ void quickSort(int ar[],int start,int end){
 * @param ar[]: inpuut array
 * @param n: sizee of the array.
 */
-void pivot(ar[],int n){
+void pivot(int ar[],int n){
 	int pivot=ar[0];
 	int k=0,j=n-1;
 	
-	while(ar[k]<pivot)&&k<=j{
+	while(ar[k]<pivot&&k<=j){
+		cout<<"While 1\n";
 		k++;
 	}
-	while(ar[j]>pivot&&j>0)
+		
+	while(ar[j]>pivot&&j>0){
+		cout<<"While 2\n";
 		j--;
-	while(j>k){
-		swap()
 	}
+		
+	while(j>k){
+		swap(ar[j],ar[k]);
+		
+		while(ar[k]<pivot&&k<=j)
+			k++;
+			
+		while(ar[j]<pivot&&j>0)
+			j--;
+	}
+	swap(ar[0],ar[j]);
 }
 
 // driver code
@@ -47,13 +59,14 @@ int main(){
 	cout<<"Start\n";
     
     cout<<"Start\n";
-    int ar[10]={2,8,89,0,123,12,1,4,6,2};
+    int ar[10]={56,8,89,0,123,12,1,4,6,2};
     
-    cout<<"Input...\n";
+    cout<<"Input...\n Pivot is: "<<56<<"\n\n";
     for(int i=0;i<10;i++)
     	cout<<ar[i]<<" ";
-    	
-    quickSort(ar,0,10);
+    cout<<endl;
+    
+    pivot(ar,10);
     
     cout<<"\n\n\nOutput...\n";
     for(int i=0;i<10;i++)
