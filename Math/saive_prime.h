@@ -10,7 +10,9 @@
 //============================================================================
 
 void saive(int *ar,int n){
-	// mark all  number as prime number initially
+	// mark all odd number as prime number initially
+	// any even number can not be prime number then stop considering even number
+	// only check odd numbers.
 	for(int i=3;i<n;i+=2)
 		ar[i]=1;
 	
