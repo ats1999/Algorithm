@@ -1,18 +1,16 @@
 //============================================================================
-// Name        : quick_sort.cpp
+// Name        : quick_select.cpp
 // Author      : Rahul (ATS)
 // Version     : 2.0
 // cpp version : c++ 14
 // Copyright   : Everyone can freely use and distribute it.
-// Description : Perform quick sort on the given input array. 
-// T.C         : ---------------------
-//			   : Best case:= O(Nlon(N))
-//			   : Worst case:= O(n^2)
+// Description : Find kth order statics from the given array. 
+//             - Ex:- find kth smallest or largest element from the given array. 
+// T.C         : O(n)
 // A.S         : O(1)
 //============================================================================
 #include<bits/stdc++.h>
 using namespace std;
-
 /**
 * Find pivot such that all elements left side of pivot are less than pivot, elements that are right side of pivot should greater that pivot.
 * @param ar[]: inpuut array
@@ -46,37 +44,30 @@ int pivot(int ar[],int start,int n){
 	swap(ar[start],ar[j]);
 	return j;
 }
-
-/**
-* Function to sort an array using quick sort algorithm. 
-* @param ar: input array
-* @param start : start index of the array
-* @param end   : last index of the array
-*/
-
-void quickSort(int ar[],int start,int end){
-	// if array size of large enough to sort then only go further
-	// otherwise return 
-	// to sort array it's size must be greater than 1
-	if((end-start)<=1)
-		return;
-	int pivotIndex=pivot(ar,start,end);
-	// sort first half of the array
-	quickSort(ar,start,pivotIndex-1);
-	// sort econd half of the array
-	quickSort(ar,pivotIndex+1,end);
+/** 
+ * This function finds kth smallest or greater element from the array in Nlog(n) time.
+ * @param {ar}: input array
+ * @param {k} : order of the input
+ * @param {start} : start index of the array
+ * @param {end}  : last index of the array
+ */
+int quickSelect(int ar[],int k,int start,int end){
+    int pivotIndex=pivot(ar,start,end);
+    if(pivotIndex==k-1)
+        return ar[pivotIndex];
+    if(pivotIndex>k-1)
+        return quickSelect(ar,k,start,pivotIndex-1);
+    else return quickSelect(ar,k,pivotIndex+1,end);
+    return -1;
 }
-
 // driver code
 int main(){
-	// fast I/O
-	cout<<"Start\n";
-    int ar[10]={1,2,0,456,89,53,0,4,7,8};
+	cout<<"Started\n";
+	int ar[10]={1,2,0,456,89,53,0,4,7,8};
     cout<<endl;
-    quickSort(ar,0,10);
-	
-	for(int i=0;i<10;i++)
-		cout<<ar[i]<<" ";
+    cout<<quickSelect(ar,1,0,10)<<endl; //0
+    cout<<quickSelect(ar,5,0,10)<<endl; //4
+    cout<<quickSelect(ar,9,0,10)<<endl; //89
+    cout<<quickSelect(ar,10,0,10)<<endl; // 456
 	return 0;
 }
-

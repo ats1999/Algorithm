@@ -1,10 +1,10 @@
 //============================================================================
-// Name        : quick_sort.cpp
+// Name        : randomized_quick_sort.cpp
 // Author      : Rahul (ATS)
 // Version     : 2.0
 // cpp version : c++ 14
 // Copyright   : Everyone can freely use and distribute it.
-// Description : Perform quick sort on the given input array. 
+// Description : Perform quick sort on the given input array using randomization. 
 // T.C         : ---------------------
 //			   : Best case:= O(Nlon(N))
 //			   : Worst case:= O(n^2)
@@ -21,7 +21,9 @@ using namespace std;
 */
 int pivot(int ar[],int start,int n){
 	// select first element as pivot
-	int pivot=ar[start];
+    srand(time(0));// random number 
+    int randomIndex=rand()%(n-start)+1;
+	int pivot=ar[start+randomIndex];
 	int k=start+1,j=n;
 	
 	// move k forward untill a number greater than pivot found
