@@ -1,5 +1,5 @@
 //============================================================================
-// Name        : cakewalk.cpp
+// Name        : .cpp
 // Author      : Rahul (ATS)
 // Version     : 2.0
 // cpp version : c++ 14
@@ -7,7 +7,6 @@
 // Description :
 // T.C         : O()
 // A.S         : O()
-// Link		    https://www.hackerrank.com/challenges/marcs-cakewalk/problem
 //============================================================================
 #include<bits/stdc++.h>
 using namespace std;
@@ -20,9 +19,6 @@ using namespace std;
 #define sd(n) scanf("%d",&n)
 // new line
 #define line printf("\n");
-// read and print array of integers
-#define red(ar,n) for(int i=0;i<n;i++){ sd(ar[i]);}
-#define ped(ar,n) for(int i=0;i<n;i++){ pf(ar[i]); }
 // vector
 #define bg begin()
 #define en end()
@@ -33,7 +29,11 @@ using namespace std;
 #define mp(a,b) make_pair(a,b)
 // new line
 #define e endl
-
+// reading test case
+#define test() int n; sd(n); while(n--)
+// read and print array of integers
+#define rd_ar_int(name,size); int name[size]; for(int i=0;i<size;i++){ sd(name[i]);}
+#define print_ar(name,size,dele) for(int i=0;i<size;i++){ cout<<name[i]<<dele; }
 // typedef
 // vector
 typedef vector<int> vi;
@@ -46,48 +46,8 @@ typedef pair<int,int> pi;
 
 // driver code
 int main(){
-	// input output
-//	#ifndef ONLINE_JUDGE
-//		freopen("input.txt","r",stdin);
-//		freopen("output.txt","w",stdout);
-//	#endif
-
-	//cout<<"Started\n";
-	// fast I/O
-	IOS;
-    
-    int n;
-    sd(n);
-    int cal[n];
-    // read input
-	for(int i=0;i<n;i++){
-		sd(cal[i]);
-	}
+	cout<<"Started\n";
 	
-	// Sort the given calories in reverse order
-	// start from 2^0 to 2^n-1
-	// multiply eaach cal[i] with 2^i and add result to the totel .  . . 
-	
-	sort(cal,cal+n,greater<int>());
-	
-	cout<<"\n\n\nSorted input\n\n";
-
-	for(int i=0;i<n;i++){
-		cout<<cal[i]<<" ";
-	}
-	line;
-//	cout<<"\n\nOUTPUT....\n\n";
-	// Logic
-	int pow=1;
-	long long totel=0;
-	for(int i=0;i<n;i++){
-		cout<<"Totel: "<<totel<<" Cal: "<<cal[i]<<" pow: "<<pow<<" pow*cal: "<<cal[i]*pow<<endl;
-		totel+=cal[i]*pow;
-		pow*=2;
-	//	cout<<"Totel: "<<totel<<endl;
-	}
-	cout<<totel;
 	return 0;
 }
-
 
