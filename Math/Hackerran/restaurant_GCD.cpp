@@ -1,25 +1,29 @@
 //============================================================================
-// Name        : .cpp
+// Name        : Restaurant
 // Author      : Rahul (ATS)
 // Version     : 2.0
 // cpp version : c++ 14
 // Copyright   : Everyone can freely use and distribute it.
-// Description :
+// Link        : https://www.hackerrank.com/challenges/restaurant/problem
 // T.C         : O()
 // A.S         : O()
+// Description  :========================================================================
+//                In the given problem, you have to cut a rectangular bread having size l * b into squares of equal dimension such that no piece of original bread is left over. So we have to make cuts only vertically or horizontally. Hence we can conclude that if the length of a side of the square is a, both l and b both has to be divisible by a.
+//                Now, there's another constraint. a has to be as large as possible.
+ //               The problem reduces to finding an integer whose value is maximum as well as divisible by both l & b which is equivalent to finding the greatest common divisor (gcd) of l & b.
 //============================================================================
 #include<bits/stdc++.h>
 using namespace std;
 //define
 // Fast I/O
 #define IOS ios::sync_with_stdio(false);cin.tie(nullptr)
+
 // print integer and a new line every time.
 #define pf(n) printf("%d ",n)
-#define ps(s) printf("%s\n",s)
+#define ps(s) printf("%s",s)
 #define sd(n) scanf("%d",&n)
 // new line
-#define space printf(" ")
-#define line printf("\n")
+#define line printf("\n");
 // vector
 #define bg begin()
 #define en end()
@@ -50,12 +54,19 @@ int main(){
 	cout<<"Started\n";
 	// I/O
 	IOS;
+    
     #ifndef ONLINE_JUDGE 
 	    // For getting input from input.txt file 
-	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\input.txt", "r", stdin); 
+	    freopen("input.txt", "r", stdin); 
 	    // Printing the Output to output.txt file 
-	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\output.txt", "w", stdout); 
+	    freopen("output.txt", "w", stdout); 
     #endif 
-    
+
+
+    test(n){
+        int l,b,area;
+        sd(l); sd(b);
+        pf((l*b)/(__gcd(l,b)*__gcd(l,b)));
+    }
 	return 0;
 }

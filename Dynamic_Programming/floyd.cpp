@@ -17,9 +17,6 @@ using namespace std;
 * @param d: input graph
 */
 void floyd(int n,int **d){
-	// create a array to store the results. 
-	//int d[n][n];
-	
 	// take each node as intermidate node one by one
 	for(int k=0;k<n;k++){
 		for(int i=0;i<n;i++){
@@ -34,9 +31,9 @@ void floyd(int n,int **d){
 // driver code
 int main(){
 	// this variable repersents infinity
-	int mx=INT_MAX;
+	int mx=INT_MAX;  // sum of  all nodes, because INT_MAX will overflow.
 	int graph[4][4]={
-	{0,5,500,500},
+	{0,5,500,500}, // at the place of 500 put mx beacause there is no edge 
 	{50,0,15,5},
 	{30,500,0,15},
 	{15,500,5,0}

@@ -4,7 +4,10 @@
 // Version     : 2.0
 // cpp version : c++ 14
 // Copyright   : Everyone can freely use and distribute it.
-// Description :
+// Description : Optimization can be done here. We can do online checking. read the first string and sort it. 
+//				- read second string and sort it. 
+//				- compare both string column wise, if it is do not sorted then further not need to read input. 
+//				- otherwise replase previous string with current string and repet procedure. 
 // T.C         : O()
 // A.S         : O()
 //============================================================================
@@ -45,6 +48,11 @@ typedef vector<string> vs;
 /// pair
 typedef pair<int,int> pi;
 
+// check if the given string is sorted or not
+bool ignorCase(char a,char b){
+	return tolower(a)<=tolower(b);
+}
+
 // driver code
 int main(){
 	cout<<"Started\n";
@@ -55,7 +63,38 @@ int main(){
 	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\input.txt", "r", stdin); 
 	    // Printing the Output to output.txt file 
 	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\output.txt", "w", stdout); 
-    #endif 
-    
+    #endif   
+    //cout<<"Started\n";
+	int T;
+	cin>>T;
+	while(T--){
+		int n;
+		cin>>n;
+		string grid[n+1];
+		for(int i=0;i<=n;i++){
+			getline(cin,grid[i]);
+		}
+
+		for(int i=1;i<=n;i++){
+			if(!is_sorted(grid[i].bg,grid[i].en,ignorCase))
+				sort(grid[i].bg,grid[i].en);
+		}
+		bool sorted=true;
+		// check row wise
+		for(int col=0;col<n;col++){
+			for(int row=2;row<=n;row++){
+				if(grid[row-1][col]>grid[row][col]){
+					sorted=false;
+					cout<<"NO\n";
+				}
+				if(!sorted)
+					break;
+			}
+			if(!sorted)
+					break;
+		}
+		if(sorted)
+			cout<<"YES\n";
+	}
 	return 0;
 }

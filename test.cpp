@@ -1,7 +1,20 @@
+//============================================================================
+// Name        : cakewalk.cpp
+// Author      : Rahul (ATS)
+// Version     : 2.0
+// cpp version : c++ 14
+// Copyright   : Everyone can freely use and distribute it.
+// Description :
+// T.C         : O()
+// A.S         : O()
+// Link		   - https://www.hackerrank.com/challenges/marcs-cakewalk/problem
+//============================================================================
 #include<bits/stdc++.h>
 using namespace std;
-//define 
-// print integer and a new line every time. 
+//define
+// Fast I/O
+#define IOS ios::sync_with_stdio(false);cin.tie(nullptr)
+// print integer and a new line every time.
 #define pf(n) printf("%d ",n)
 #define ps(s) printf("%s\n",s)
 #define sd(n) scanf("%d",&n)
@@ -30,50 +43,29 @@ typedef vector<pair<int,int>> vp;
 typedef vector<string> vs;
 /// pair
 typedef pair<int,int> pi;
-void print(int ar[],int n){
-	for(int i=0;i<n;i++){
-		cout<<ar[i]<<" ";
-	}
-	cout<<endl;
-}
-void merge(int ar[],int left[],int right[],int size,int l,int r){
-	int i=0,j=0,k=0;
-	cout<<"Left: ";
-	print(left,1);
-	cout<<"Right: ";
-	print(right,1);
-	// merge two array
-	// at every iteration, insert minimum first element of the both array
-	for(;i<size;i++){
-		
-		if(j<l&&k<r){
-			if(left[j]<right[k]){
-				ar[i]=left[j];
-				cout<<"Assigning: left "<<left[j]<<endl;
-				j++;
-			}else if(k<r){
-				ar[i]=right[k];
-				cout<<"Assigning: right "<<right[k]<<endl;
-				k++;
-			}
-		}else break;
-	}
-	
-	// after insertion might be one array left with some element then insert it into ar[]
-	for(;j<l;j++)
-		{
-			cout<<"Assigning: left "<<left[j]<<endl;
-			ar[i]=left[j];
-		}
-		
-	for(;k<r;k++){
-	cout<<"Assigning: right "<<right[k]<<endl;
-		ar[i]=left[k];
-	}
+bool ignorCase(char a,char b){
+	return tolower(a)<=tolower(b);
 }
 // driver code
 int main(){
-	int mid=5;
-	int ans=mid>>1;
-	cout<<mid<<" "<<ans;
+	//cout<<"Started\n";
+	// fast I/O
+	IOS;/*
+     #ifndef ONLINE_JUDGE 
+	     //For getting input from input.txt file 
+	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\input.txt", "r", stdin); 
+	     //Printing the Output to output.txt file 
+	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\output.txt", "w", stdout); 
+    #endif  */
+	string ar[]={"abc",
+"def",
+"aez",
+"xyz"
+,"zxy"};int n=5;   
+for(int i=0;i<5;i++)
+	if(is_sorted(ar[i].bg,ar[i].en,ignorCase))
+		cout<<"Yes\n";
+	else cout<<"No\n";
+	return 0;
 }
+
