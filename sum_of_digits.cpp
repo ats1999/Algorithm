@@ -4,9 +4,9 @@
 // Version     : 2.0
 // cpp version : c++ 14
 // Copyright   : Everyone can freely use and distribute it.
-// Description :
-// T.C         : O(n^3)
-// A.S         : O()
+// Description : Finds sum of digits of given number. 
+// T.C         : O(n)
+// A.S         : O(1)
 //============================================================================
 #include<bits/stdc++.h>
 using namespace std;
@@ -14,38 +14,29 @@ using namespace std;
 // Fast I/O
 #define IOS ios::sync_with_stdio(false);cin.tie(nullptr)
 /**
- * This function finds best order of matrices to be multiplied.
- * @param {m} array containing row and colums of matrices
- * @param {i} start index
- * @param {i} end index
- * @return order of matrix || cost of multiplication 
+ * This function finds sum of digits of the given number
+ * @param n input number
+ * @return sum of digit
  */
-int matrixChain(int m[],int i,int j){
-    //if there is single matrix to multipy then cost will be zero
-    if(i==j)
-        return 0;
-    
-    int ans=INT_MAX;
-    for(int k=i;k<j;k++){
-        int temp=matrixChain(m,i,k)+matrixChain(m,k+1,j)+m[i-1]*m[k]*m[j];
-        ans=min(ans,temp);
-    }
-    return ans;
+int sumOfDigit(long long int n){
+	int sum=0;
+	while(n>0){
+		sum+=n%10;
+		n/=10;
+	}
+	return sum;
 }
 // driver code
 int main(){
 	cout<<"Started\n";
 	// I/O
-	//IOS;
-    
+	IOS;
     #ifndef ONLINE_JUDGE 
 	    // For getting input from input.txt file 
 	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\input.txt", "r", stdin); 
 	    // Printing the Output to output.txt file 
 	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\output.txt", "w", stdout); 
     #endif 
-
-    int m[]={1,2,3,4};
-    cout<<matrixChain(m,1,3);
+    cout<<sumOfDigit(456);
 	return 0;
 }

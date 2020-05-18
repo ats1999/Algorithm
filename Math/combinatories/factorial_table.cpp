@@ -4,9 +4,9 @@
 // Version     : 2.0
 // cpp version : c++ 14
 // Copyright   : Everyone can freely use and distribute it.
-// Description :
-// T.C         : O(n^3)
-// A.S         : O()
+// Description : Find factorial from 1 to the given range. 
+// T.C         : O(n)
+// A.S         : O(n) to store table
 //============================================================================
 #include<bits/stdc++.h>
 using namespace std;
@@ -14,38 +14,30 @@ using namespace std;
 // Fast I/O
 #define IOS ios::sync_with_stdio(false);cin.tie(nullptr)
 /**
- * This function finds best order of matrices to be multiplied.
- * @param {m} array containing row and colums of matrices
- * @param {i} start index
- * @param {i} end index
- * @return order of matrix || cost of multiplication 
+ * Find factorial of the given number. 
+ * @param n input number whose table needs to be preapared. 
  */
-int matrixChain(int m[],int i,int j){
-    //if there is single matrix to multipy then cost will be zero
-    if(i==j)
-        return 0;
-    
-    int ans=INT_MAX;
-    for(int k=i;k<j;k++){
-        int temp=matrixChain(m,i,k)+matrixChain(m,k+1,j)+m[i-1]*m[k]*m[j];
-        ans=min(ans,temp);
-    }
-    return ans;
+void factorialTable(int n,int ar[]){
+    // factorial of zero is 1
+    ar[0]=1;
+
+    for(int i=1;i<=n;i++)
+        ar[i]=i*ar[i-1];
 }
 // driver code
 int main(){
 	cout<<"Started\n";
 	// I/O
-	//IOS;
-    
+	IOS;
     #ifndef ONLINE_JUDGE 
 	    // For getting input from input.txt file 
 	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\input.txt", "r", stdin); 
 	    // Printing the Output to output.txt file 
 	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\output.txt", "w", stdout); 
     #endif 
-
-    int m[]={1,2,3,4};
-    cout<<matrixChain(m,1,3);
+    int ar[10];
+    factorialTable(10,ar);
+    for(int i=0;i<10;i++)
+        cout<<ar[i]<<" ";
 	return 0;
 }
