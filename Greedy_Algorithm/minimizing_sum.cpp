@@ -4,7 +4,8 @@
 // Version     : 2.0
 // cpp version : c++ 14
 // Copyright   : Everyone can freely use and distribute it.
-// Description : Find binomial coefficent using dynamic programming. 
+// Description : Given an array, find a value x that minimizes the sum.  
+//              Page 61 Book
 // T.C         : O()
 // A.S         : O()
 //============================================================================
@@ -13,18 +14,6 @@ using namespace std;
 //define
 // Fast I/O
 #define IOS ios::sync_with_stdio(false);cin.tie(nullptr)
-
-/**
- * Find binomial coefficent of the given numbers. 
- * @param n number 1
- * @param k number 2
- * @return binomian coefficent of n and k, ie. nCk
- */
-int binomial(int n,int k){
-    int C[n][k];
-    // if c(n,0)==c(n,n)==1
-    
-}
 // driver code
 int main(){
 	cout<<"Started\n";
@@ -36,8 +25,5 @@ int main(){
 	    // Printing the Output to output.txt file 
 	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\output.txt", "w", stdout); 
     #endif 
-    int n,k;
-    cin>>n>>k;
-    cout<<binomial(n,k);
 	return 0;
 }

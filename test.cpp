@@ -1,5 +1,5 @@
 //============================================================================
-// Name        : cakewalk.cpp
+// Name        : .cpp
 // Author      : Rahul (ATS)
 // Version     : 2.0
 // cpp version : c++ 14
@@ -7,7 +7,6 @@
 // Description :
 // T.C         : O()
 // A.S         : O()
-// Link		   - https://www.hackerrank.com/challenges/marcs-cakewalk/problem
 //============================================================================
 #include<bits/stdc++.h>
 using namespace std;
@@ -19,10 +18,8 @@ using namespace std;
 #define ps(s) printf("%s\n",s)
 #define sd(n) scanf("%d",&n)
 // new line
-#define line printf("\n");
-// read and print array of integers
-#define red(ar,n) for(int i=0;i<n;i++){ sd(ar[i]);}
-#define ped(ar,n) for(int i=0;i<n;i++){ pf(ar[i]); }
+#define space printf(" ")
+#define line printf("\n")
 // vector
 #define bg begin()
 #define en end()
@@ -33,7 +30,13 @@ using namespace std;
 #define mp(a,b) make_pair(a,b)
 // new line
 #define e endl
-
+// reading test case
+#define test(n) int n; sd(n); while(n--)
+// read and print array of integers
+#define rd_ar_int(name,size) int name[size]; for(int i=0;i<size;i++){ sd(name[i]);}
+#define print_ar(name,size,dele) for(int i=0;i<size;i++){ cout<<name[i]<<dele; }
+// 2D array
+#define twoD(row,col,name) int **name=new int*[row];for(int i=0;i<row;i++){name[i]=new int[col];}
 // typedef
 // vector
 typedef vector<int> vi;
@@ -43,29 +46,26 @@ typedef vector<pair<int,int>> vp;
 typedef vector<string> vs;
 /// pair
 typedef pair<int,int> pi;
-bool ignorCase(char a,char b){
-	return tolower(a)<=tolower(b);
+int m[2][2]={
+	{1,2},
+	{888,9090}
+};
+void get(){
+	for(int i=0;i<2;i++)
+		for(int j=0;j<2;j++)
+			cout<<m[i][j]<<" ";
 }
 // driver code
 int main(){
-	//cout<<"Started\n";
-	// fast I/O
-	IOS;/*
-     #ifndef ONLINE_JUDGE 
-	     //For getting input from input.txt file 
+	cout<<"Started\n";
+	// I/O
+	IOS;
+    #ifndef ONLINE_JUDGE 
+	    // For getting input from input.txt file 
 	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\input.txt", "r", stdin); 
-	     //Printing the Output to output.txt file 
+	    // Printing the Output to output.txt file 
 	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\output.txt", "w", stdout); 
-    #endif  */
-	string ar[]={"abc",
-"def",
-"aez",
-"xyz"
-,"zxy"};int n=5;   
-for(int i=0;i<5;i++)
-	if(is_sorted(ar[i].bg,ar[i].en,ignorCase))
-		cout<<"Yes\n";
-	else cout<<"No\n";
+    #endif 
+	get();
 	return 0;
 }
-

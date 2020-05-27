@@ -28,14 +28,16 @@ using namespace std;
 #define fr first
 #define sc second
 #define mp(a,b) make_pair(a,b)
+// loop
+#define f(i,n) for(int i=0;i<n;i++)
+#define fa(i,a,n) for (int i=a;i<n;i++)
+#define fn(i,n) for(int i=n;i>=0;i--)
+#define fna(i,a,n) for(int i=n;i>=a;i--)
 // new line
 #define e endl
 // reading test case
 #define test(n) int n; sd(n); while(n--)
 // read and print array of integers
-#define deb(x) cout<<"#X: "<<x<<"\n";
-#define dar(ar,n) for(int i=0;i<n;i++) {cout<<"#."<<i<<ar[i]<<",";cout<<endl;}
-#define d2d(ar,n) for(int i=0;i<n;i++) {for(int j=0;j<n;j++){cout<<ar[i][j]<<" ";}cout<<endl; }
 #define rd_ar_int(name,size) int name[size]; for(int i=0;i<size;i++){ sd(name[i]);}
 #define print_ar(name,size,dele) for(int i=0;i<size;i++){ cout<<name[i]<<dele; }
 // 2D array
@@ -52,15 +54,36 @@ typedef pair<int,int> pi;
 
 // driver code
 int main(){
-	cout<<"Started\n";
+	//cout<<"Started\n";
 	// I/O
 	IOS;
-    #ifndef ONLINE_JUDGE 
-	    // For getting input from input.txt file 
-	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\input.txt", "r", stdin); 
-	    // Printing the Output to output.txt file 
-	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\output.txt", "w", stdout); 
-    #endif 
-    
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        int gr[n],op[n];
+    for(int i=0;i<n;i++){
+        cin>>gr[i];
+    }
+    for(int i=0;i<n;i++){
+        cin>>op[i];
+    }
+
+    sort(gr,gr+n);
+    sort(op,op+n);
+
+    // operation
+    int count=0;
+    int j=n-1;
+    for(int i=n-1;i>=0&&j>=0;){
+        if(gr[i]>op[j]){
+            count++;
+            i--;
+        }
+        j--;
+    }
+    cout<<count<<endl;
+    }
 	return 0;
 }

@@ -4,8 +4,23 @@
 // Version     : 2.0
 // cpp version : c++ 14
 // Copyright   : Everyone can freely use and distribute it.
-// Description : Program to generate pascal trangle.
-// T.C         : O(n^3) time taken O(n)- for each row we have to generate a column O(n), each column element is a binomial coefficent O(n)
+// Description :
+// T.C         : O()
+// A.S         : O()
+//============================================================================
+#include<bits/stdc++.h>
+using namespace std;
+//define
+// Fast I/O
+#define IOS ios::sync_with_stdio(false);cin.tie(nullptr)
+//============================================================================
+// Name        : .cpp
+// Author      : Rahul (ATS)
+// Version     : 2.0
+// cpp version : c++ 14
+// Copyright   : Everyone can freely use and distribute it.
+// Description :
+// T.C         : O(n^2)
 // A.S         : O(1)
 //============================================================================
 #include<bits/stdc++.h>
@@ -14,37 +29,26 @@ using namespace std;
 // Fast I/O
 #define IOS ios::sync_with_stdio(false);cin.tie(nullptr)
 /**
- * Function to find binomial coefficent.
- * @parma n
- * @param k
- * @return binomial coeefficent.
- */
-int binomialCoeff(int n, int k) 
-{ 
-    int res = 1; 
-    if (k > n - k) 
-    k = n - k; 
-    for (int i = 0; i < k; ++i) 
-    { 
-        res *= (n - i); 
-        res /= (i + 1); 
-    } 
-      
-    return res; 
-} 
-/**
  * Function to generate pascal traingle. 
  * every row i has i elements in pascal traingle. 
  * every element of any row is binomial coefficnt of row number 0 to row
+ * @param n size of traingle
  */
 void pascal(int n){
-	for(int line = 0; line < n; line++){
-		for(int elemOfLine = 0; elemOfLine <= line; elemOfLine++){
-			cout<<binomialCoeff(line , elemOfLine)<<" ";
-		}
-		cout<<endl;
-	}
+	for (int line = 1; line <= n; line++) 
+{ 
+    int C = 1; // used to represent C(line, i) 
+    for (int i = 1; i <= line; i++)  
+    { 
+          
+        // The first value in a line is always 1 
+        cout<< C<<" ";  
+        C = C * (line - i) / i;  
+    } 
+    cout<<"\n"; 
+} 
 }
+
 // driver code
 int main(){
 	cout<<"Started\n";
@@ -56,7 +60,7 @@ int main(){
 	    // Printing the Output to output.txt file 
 	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\output.txt", "w", stdout); 
     #endif 
-	int n;
+    int n;
 	cin>>n;
     pascal(n);
 	return 0;

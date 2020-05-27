@@ -4,7 +4,7 @@
 // Version     : 2.0
 // cpp version : c++ 14
 // Copyright   : Everyone can freely use and distribute it.
-// Description :
+// Description : https://www.codechef.com/HALO2020/problems/SMVOL
 // T.C         : O()
 // A.S         : O()
 //============================================================================
@@ -33,9 +33,6 @@ using namespace std;
 // reading test case
 #define test(n) int n; sd(n); while(n--)
 // read and print array of integers
-#define deb(x) cout<<"#X: "<<x<<"\n";
-#define dar(ar,n) for(int i=0;i<n;i++) {cout<<"#."<<i<<ar[i]<<",";cout<<endl;}
-#define d2d(ar,n) for(int i=0;i<n;i++) {for(int j=0;j<n;j++){cout<<ar[i][j]<<" ";}cout<<endl; }
 #define rd_ar_int(name,size) int name[size]; for(int i=0;i<size;i++){ sd(name[i]);}
 #define print_ar(name,size,dele) for(int i=0;i<size;i++){ cout<<name[i]<<dele; }
 // 2D array
@@ -61,6 +58,10 @@ int main(){
 	    // Printing the Output to output.txt file 
 	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\output.txt", "w", stdout); 
     #endif 
-    
+    test(T){
+        long long int l;
+        cin>>l;
+
+    }
 	return 0;
 }
