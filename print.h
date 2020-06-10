@@ -23,7 +23,7 @@ void printArBool(bool ar[],int n){
  * Print the given vector to the console.
  * @param vect input vector
  */
-void printVect(vector<int>&vect){
+void printVector(vector<int>&vect){
 	for(int i:vect)
 		cout<<i<<" ";
 		cout<<endl;

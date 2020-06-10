@@ -4,7 +4,7 @@
 // Version     : 2.0
 // cpp version : c++ 14
 // Copyright   : Everyone can freely use and distribute it.
-// Description :
+// Description : https://www.codechef.com/JUNE20B/problems/XYSTR
 // T.C         : O()
 // A.S         : O()
 //============================================================================
@@ -55,15 +55,24 @@ typedef pair<int,int> pi;
 
 // driver code
 int main(){
-	cout<<"Started\n";
 	// I/O
 	IOS;
-    #ifndef ONLINE_JUDGE 
-	    // For getting input from input.txt file 
-	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\input.txt", "r", stdin); 
-	    // Printing the Output to output.txt file 
-	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\output.txt", "w", stdout); 
-    #endif 
-    
+    int t;
+    cin>>t;
+    while(t--){
+        string str;
+        cin>>str;
+        int count=0;
+        int len=str.length(); 
+        char prev=str[0];
+        for(int i=1;i<len;i++){
+            if(str[i]==prev)
+                continue;
+            prev=str[i+1];
+            count++;
+            i++;
+        }
+        cout<<count<<endl;
+    }
 	return 0;
 }

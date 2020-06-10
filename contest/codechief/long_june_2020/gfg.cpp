@@ -58,12 +58,35 @@ int main(){
 	cout<<"Started\n";
 	// I/O
 	IOS;
-    #ifndef ONLINE_JUDGE 
-	    // For getting input from input.txt file 
-	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\input.txt", "r", stdin); 
-	    // Printing the Output to output.txt file 
-	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\output.txt", "w", stdout); 
-    #endif 
+    // #ifndef ONLINE_JUDGE 
+	//     // For getting input from input.txt file 
+	//     freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\input.txt", "r", stdin); 
+	//     // Printing the Output to output.txt file 
+	//     freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\output.txt", "w", stdout); 
+    // #endif 
     
+
+    test(t){
+        unordered_map<int,int>visit;
+        int n;
+        cin>>n;
+        FOR(n){
+            int a;
+            cin>>a;
+            visit[a]++;
+        }
+        vector<pair<int,int>>count;
+        for(auto it:visit){
+            count.push_back(make_pair(it.second,it.first));
+        }
+
+        sort(count.begin(),count.end());
+
+        int k;
+        cin>>k;
+        for(auto it:count){
+            cout<<it.first<<"->"<<it.second<<endl;
+        }
+    }
 	return 0;
 }

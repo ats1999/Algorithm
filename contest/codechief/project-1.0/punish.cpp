@@ -4,7 +4,7 @@
 // Version     : 2.0
 // cpp version : c++ 14
 // Copyright   : Everyone can freely use and distribute it.
-// Description :
+// Description : https://www.codechef.com/PCO12020/problems/PUNISH
 // T.C         : O()
 // A.S         : O()
 //============================================================================
@@ -30,9 +30,6 @@ using namespace std;
 #define mp(a,b) make_pair(a,b)
 // new line
 #define e endl
-// Loop
-#define FOR(n) for(int i=0;i<n;i++)
-#define FORA(a,n) for(int i=a;i<n;i++)
 // reading test case
 #define test(n) int n; sd(n); while(n--)
 // read and print array of integers
@@ -64,6 +61,10 @@ int main(){
 	    // Printing the Output to output.txt file 
 	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\output.txt", "w", stdout); 
     #endif 
-    
+    test(T){
+        int n;
+        sd(n);
+        cout<<n-1<<endl;
+    }
 	return 0;
 }

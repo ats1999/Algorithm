@@ -4,7 +4,7 @@
 // Version     : 2.0
 // cpp version : c++ 14
 // Copyright   : Everyone can freely use and distribute it.
-// Description :
+// Description : https://www.codechef.com/JUNE20B/problems/PRICECON
 // T.C         : O()
 // A.S         : O()
 //============================================================================
@@ -30,9 +30,6 @@ using namespace std;
 #define mp(a,b) make_pair(a,b)
 // new line
 #define e endl
-// Loop
-#define FOR(n) for(int i=0;i<n;i++)
-#define FORA(a,n) for(int i=a;i<n;i++)
 // reading test case
 #define test(n) int n; sd(n); while(n--)
 // read and print array of integers
@@ -55,15 +52,21 @@ typedef pair<int,int> pi;
 
 // driver code
 int main(){
-	cout<<"Started\n";
 	// I/O
 	IOS;
-    #ifndef ONLINE_JUDGE 
-	    // For getting input from input.txt file 
-	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\input.txt", "r", stdin); 
-	    // Printing the Output to output.txt file 
-	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\output.txt", "w", stdout); 
-    #endif 
+	test(t){
+	    int n,k;
+	    sd(n);sd(k);
+	    int totel=0;
+	    for(int i=0;i<n;i++){
+	        int p;
+	        sd(p);
+	        if(p>k){
+	            totel+=p-k;
+	        }
+	    }
+	    cout<<totel<<endl;
+	}
     
 	return 0;
 }

@@ -4,7 +4,7 @@
 // Version     : 2.0
 // cpp version : c++ 14
 // Copyright   : Everyone can freely use and distribute it.
-// Description :
+// Description : https://www.codechef.com/JUNE20B/problems/CHFICRM
 // T.C         : O()
 // A.S         : O()
 //============================================================================
@@ -17,9 +17,12 @@ using namespace std;
 #define pf(n) printf("%d ",n)
 #define ps(s) printf("%s\n",s)
 #define sd(n) scanf("%d",&n)
+// Loop
+#define FOR(n) for(int i=0;i<n;i++)
+#define FORA(a,n) for(int i=a;i<n;i++)
 // new line
 #define space printf(" ")
-#define line printf("\n")
+#define line cout<<endl
 // vector
 #define bg begin()
 #define en end()
@@ -53,17 +56,58 @@ typedef vector<string> vs;
 /// pair
 typedef pair<int,int> pi;
 
+/**
+ * This function return true if it is possible to sell thee icecream, false otherwise. 
+ * @param ar[] input array.
+ * @param n size of ar.
+ * @return true if it possible, flase otherwise. 
+ */
+bool isPossible(int *ar,int n){
+	unordered_map<int,int>coins;
+	coins[5]=0; coins[10]=0;coins[15]=0;
+
+	FOR(n){
+		// keep coin
+		coins[ar[i]]++;
+
+		// if change do not required
+		if(ar[i]-5==0)
+			continue;
+		
+		// change required
+		// i have to return 5
+		if(ar[i]-5==5&&coins[5]>=1){
+			coins[5]--;
+		}else return false;
+
+		// i have to return 10
+		if(ar[i]-5==10&&coins[10]>=1){
+			coins[10]--;
+		}else if(ar[i]-5==10&&coins[5]>=2){
+			coins[5]-=2;
+		}else return false;
+	}
+
+	return true;
+}
 // driver code
 int main(){
-	cout<<"Started\n";
 	// I/O
 	IOS;
-    #ifndef ONLINE_JUDGE 
+
+	#ifndef ONLINE_JUDGE 
 	    // For getting input from input.txt file 
 	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\input.txt", "r", stdin); 
 	    // Printing the Output to output.txt file 
 	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\output.txt", "w", stdout); 
     #endif 
     
+	test(t){
+		int n;sd(n); rd_ar_int(ar,n);
+		cout<<"Hello start\n";
+		if(isPossible(ar,n))
+			cout<<"YES\n";
+		else cout<<"NO\n";
+	}
 	return 0;
 }
