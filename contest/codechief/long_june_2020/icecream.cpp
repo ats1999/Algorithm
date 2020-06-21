@@ -64,8 +64,8 @@ typedef pair<int,int> pi;
  */
 bool isPossible(int *ar,int n){
 	unordered_map<int,int>coins;
-	coins[5]=0; coins[10]=0;coins[15]=0;
-
+	
+	
 	FOR(n){
 		// keep coin
 		coins[ar[i]]++;
@@ -76,16 +76,20 @@ bool isPossible(int *ar,int n){
 		
 		// change required
 		// i have to return 5
-		if(ar[i]-5==5&&coins[5]>=1){
-			coins[5]--;
-		}else return false;
+		if(ar[i]-5==5){
+		    if(coins[5]>=1)
+			    coins[5]--;
+			   else return false;
+		}
 
 		// i have to return 10
-		if(ar[i]-5==10&&coins[10]>=1){
+		if(ar[i]-5==10){
+		    if(coins[10]>=1)
 			coins[10]--;
-		}else if(ar[i]-5==10&&coins[5]>=2){
+			else if(coins[5]>=2)
 			coins[5]-=2;
-		}else return false;
+			else return false;
+		}
 	}
 
 	return true;
@@ -94,17 +98,10 @@ bool isPossible(int *ar,int n){
 int main(){
 	// I/O
 	IOS;
-
-	#ifndef ONLINE_JUDGE 
-	    // For getting input from input.txt file 
-	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\input.txt", "r", stdin); 
-	    // Printing the Output to output.txt file 
-	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\output.txt", "w", stdout); 
-    #endif 
     
 	test(t){
 		int n;sd(n); rd_ar_int(ar,n);
-		cout<<"Hello start\n";
+		
 		if(isPossible(ar,n))
 			cout<<"YES\n";
 		else cout<<"NO\n";

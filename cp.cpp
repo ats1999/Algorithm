@@ -8,20 +8,19 @@
 // T.C         : O()
 // A.S         : O()
 //============================================================================
+
 #include<bits/stdc++.h>
 using namespace std;
-//define
-// Fast I/O
 #define IOS ios::sync_with_stdio(false);cin.tie(nullptr)
+
 // driver code
 int main(){
 	cout<<"Started\n";
 	// I/O
 	IOS;
+
     #ifndef ONLINE_JUDGE 
-	    // For getting input from input.txt file 
-	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\input.txt", "r", stdin); 
-	    // Printing the Output to output.txt file 
+	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\input.txt", "r", stdin);  
 	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\output.txt", "w", stdout); 
     #endif 
     

@@ -6,6 +6,7 @@
 // Copyright   : Everyone can freely use and distribute it.
 // Description : Implemention o fenwick tree. 
 //              https://www.youtube.com/watch?v=CWDQJGaN1gY
+//              https://www.geeksforgeeks.org/two-dimensional-binary-indexed-tree-or-fenwick-tree/
 // T.C         : O(nlog(n)) for making fenwick tree. Rest of the operation cost O(log(n))
 // A.S         : O(n) - to store  fenwick tree.
 //============================================================================
@@ -14,16 +15,15 @@ using namespace std;
 //define
 // Fast I/O
 #define IOS ios::sync_with_stdio(false);cin.tie(nullptr)
-
+int N=4;
 /**
  * This function finds next index to fill.
  * @param index current index.
- * @param last last index of the array.
- * @return next index if it is in range, -1 otherwise. 
+ * @return next index that could be affected by 'index'
  */
-int getNextIndex(int index,int last){
-
-    return 0;
+int getNextIndex(int index){
+    index += (index&-index);
+    return index;
 }
 /**
  * This function takes an index as argument and return it's parent.
@@ -31,7 +31,8 @@ int getNextIndex(int index,int last){
  * @return parent of index
  */
 int getParent(int index){
-     
+    index -= (index&-index);
+    return index;
 }
 /**
  * This fnction takes an array and an empty fenwick tree, then it builds fenwick tree out of that array.
@@ -40,11 +41,7 @@ int getParent(int index){
  * @param fenwick empty fanwick to build
  */
 void buildFenwick(int ar[],int fenwick[],int n){
-    memset(fenwick,0,sizeof fenwick);
-
-    for(int i=0;i<n;i++){
-        
-    }
+    
 }
 // driver code
 int main(){
@@ -57,8 +54,12 @@ int main(){
 	    // Printing the Output to output.txt file 
 	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\output.txt", "w", stdout); 
     #endif 
-    int ar[8]={1,4,4,16,6,7,4,29};
-    int fenwick[8+1];
-    buildFenwick(ar,fenwick,8);
+    int N=4;
+    int mat[N][N] = {{1, 2, 3, 4}, 
+                    {5, 3, 8, 1}, 
+                    {4, 6, 7, 5}, 
+                    {2, 4, 8, 9}};
+    int BIT[N+1][N+1]; 
+    buildFenwick(mat, BIT); 
 	return 0;
 }

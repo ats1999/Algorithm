@@ -93,16 +93,18 @@ int main(){
     */
     int n=6;
     // cin>>n;
-    int ar[n]={1,3,5,7,9,11};
+    int ar[n]={1,2,3,4,5,6};
+
     // for(int i=0;i<n;i++){
     //     cin>>ar[i];
     // }
-
-    int tree[2*n];
+    // int tree[4*n];
+    int tree[4*n];
     memset(tree,0,sizeof tree);
     build(ar,tree,0,n-1,0);
     
-    for(int i=0;i<2*n-1;i++){
+    // for(int i=0;i<4*n-1;i++)
+    for(int i=0;i<4*n;i++){
         cout<<tree[i]<<" ";
     }
     cout<<endl;

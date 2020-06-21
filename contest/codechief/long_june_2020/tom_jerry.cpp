@@ -4,7 +4,7 @@
 // Version     : 2.0
 // cpp version : c++ 14
 // Copyright   : Everyone can freely use and distribute it.
-// Description :
+// Description : https://www.codechef.com/JUNE20B/problems/EOEO
 // T.C         : O()
 // A.S         : O()
 //============================================================================
@@ -53,40 +53,50 @@ typedef vector<string> vs;
 /// pair
 typedef pair<int,int> pi;
 
+/**
+ * This function returns the number of times jerry wins. 
+ * @param ts strength of TS.
+ * @return int number of times JS wins. 
+ */
+long long int numJSWin(long long int ts){
+
+    // devide ts by 2 untill ts is even
+    // idea is that, jerry can win only when JS is even and TS is odd. 
+    // till TS is even jerry can't win
+
+    // 0.25 sec
+    while((ts%2==0)&&ts>1)
+        ts/=2;
+
+    /*
+    0.17 sec
+    while((!(ts&1))&&ts>1)
+        ts/=2;
+
+    0.19 seec
+    ts=ts>>1
+
+
+    */
+    if(ts<=1)
+        return 0;
+    return ts/2;
+}
 // driver code
 int main(){
 	cout<<"Started\n";
 	// I/O
 	IOS;
-    // #ifndef ONLINE_JUDGE 
-	//     // For getting input from input.txt file 
-	//     freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\input.txt", "r", stdin); 
-	//     // Printing the Output to output.txt file 
-	//     freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\output.txt", "w", stdout); 
-    // #endif 
-    
-
+    #ifndef ONLINE_JUDGE 
+	    // For getting input from input.txt file 
+	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\input.txt", "r", stdin); 
+	    // Printing the Output to output.txt file 
+	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\output.txt", "w", stdout); 
+    #endif 
     test(t){
-        unordered_map<int,int>visit;
-        int n;
-        cin>>n;
-        FOR(n){
-            int a;
-            cin>>a;
-            visit[a]++;
-        }
-        vector<pair<int,int>>count;
-        for(auto it:visit){
-            count.push_back(make_pair(it.second,it.first));
-        }
-
-        sort(count.begin(),count.end());
-
-        int k;
-        cin>>k;
-        for(auto it:count){
-            cout<<it.first<<"->"<<it.second<<endl;
-        }
+        long long int ts;
+        cin>>ts;
+        cout<<numJSWin(ts)<<endl;
     }
 	return 0;
 }

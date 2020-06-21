@@ -4,7 +4,7 @@
 // Version     : 2.0
 // cpp version : c++ 14
 // Copyright   : Everyone can freely use and distribute it.
-// Description : Implemention o fenwick tree. 
+// Description : Implemention of fenwick tree. 
 //              https://www.youtube.com/watch?v=CWDQJGaN1gY
 // T.C         : O(nlog(n)) for making fenwick tree. Rest of the operation cost O(log(n))
 // A.S         : O(n) - to store  fenwick tree.
