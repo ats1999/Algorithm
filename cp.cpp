@@ -24,5 +24,6 @@ int main(){
 	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\output.txt", "w", stdout); 
     #endif 
     
+	cout<<"\nDone:)\n";
 	return 0;
 }

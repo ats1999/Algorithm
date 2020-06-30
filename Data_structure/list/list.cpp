@@ -39,7 +39,7 @@ class List{
             }
 
             List *temp=head;
-            while(!temp->next){
+            while(temp->next!=NULL){
                 temp=temp->next;
             }
             temp->next=nn;
@@ -57,7 +57,7 @@ class List{
             }
 
             List *temp=head;
-            while(!temp->next){
+            while(temp->next){
                 cout<<temp->data<<"->";
                 temp=temp->next;
             }
@@ -65,10 +65,6 @@ class List{
         }
 };
 
-void add(List *&head,int data){
-    List * nn = new List (data);
-    head=nn;
-}
 // driver code
 int main(){
 	cout<<"Started\n";
@@ -81,8 +77,9 @@ int main(){
 	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\output.txt", "w", stdout); 
     #endif 
     List *head=NULL;
-    head->addNode(head,78);
-    head->addNode(head,3423);
+    head->addNode(head,506);
+    head->addNode(head,45);
+    head->addNode(head,202);
     head->printList(head);
 	return 0;
 }

@@ -63,13 +63,13 @@ class Graph{
             }
         }
 
-        void dijkstra(int src,int dist[]){
+        void dijkstra(int src,int dist[],int path[]){
             vector<bool>visited(v,false);
             // w,u,v
             set<pair<int,int>>Set;
 
             visited[src]=true;
-
+            path[src]=-1;
             // mark distance of all node to INF initially
             for(int i=1;i<v;i++){
                 Set.insert(make_pair(INT_MAX,i));
@@ -84,30 +84,17 @@ class Graph{
 
             while(!Set.empty()){
                 auto v=Set.begin();
-                cout<<"=============================\nAdjacent to :"<<v->second<<endl;
+
                 for(auto adjNode:adj[v->second]){
-                    if(visited[adjNode.first])
-                        cout<<"Node "<<adjNode.first<<" Is already visited\n";
                     if(!visited[adjNode.first])
                     // relax
                     if(dist[adjNode.first]>dist[v->second]+adjNode.second){
-                        cout<<"\n------------------\n";
-                        cout<<"Distance of "<<v->second<<" is:"<<dist[v->second]<<endl;
-                        cout<<"Node is:"<<adjNode.first<<",\tWeight: "<<dist[adjNode.first]<<endl;
-                        cout<<"Weight of edge: "<<adjNode.second<<endl;
-                        cout<<"Now, Distance of :"<<adjNode.first<<" is: "<<dist[v->second]+adjNode.second<<endl;
-                        cout<<"\n------------------\n";
                         dist[adjNode.first]=dist[v->second]+adjNode.second;
+                        path[adjNode.first]=v->second;
                     }
                 }
-                cout<<"Visiting node: "<<v->second<<endl;
                 visited[v->second]=true;
                 Set.erase(v);
-
-                        cout<<"Set:\n";
-                    for(auto it:Set.begin();it!=Set.end();it++){
-                        cout<<it->second<<"->"<<it->first<<endl;
-                    }
             }
         }
 };
@@ -133,10 +120,10 @@ int main(){
 	}
 
     // operate
-	g.print();
+	//g.print();
     
-    int dist[n];
-    g.dijkstra(0,dist);
+    int dist[n],path[n];
+    g.dijkstra(0,dist,path);
 
     cout<<"Distances====>>\n";
     for(int i=0;i<n;i++){
