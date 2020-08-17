@@ -27,7 +27,7 @@
 * find(int num)	    : returns parent of the given element.
 * getSize()			: returns size of set. (constant).
 *
-* isUnion()			: returns true and make union if both numbers belongs to different set, false otherwise/
+* unite()			: returns true and make union if both numbers belongs to different set, false otherwise/
 *					- isUnion(int num1,int num2)
 */
 //template<typename T>
@@ -40,16 +40,16 @@ class DisjSet{
 		*/
 		DisjSet(int n){
 			setSize=n+1;
-			set=new int[n+1];
-			size=new int[n+1];
+			set = new int[n+1];
+			size = new int[n+1];
 	
-			//set all values that means, it's parent is itself
-			for(int i=0;i<=n;i++)
-				set[i]=-1;
+			// initially every element is parent of itself
+			for(int i = 0; i <= n; i++)
+				set[i] = i;
 			
-			//set all set size of all elements to zero.
-			for(int i=0;i<=n;i++)
-				size[i]=0;
+			// initially size o every set is zero
+			for(int i = 0; i <= n; i++)
+				size[i] = 0;
 		}
 		
 		/**
@@ -80,12 +80,7 @@ class DisjSet{
 		* @return bool : true denotes both number belongs to the same set, different set otherwise. 
 		*/
 		bool areInSameSet(int num1,int num2){
-			// both belongs to the same set.
-			if(this->set[num1]==this->set[num2])
-				return true;
-				
-			// both belongs to the different this.set.
-			return false;
+			return find(num1) == find(num2);
 		}
 		
 		/**
@@ -95,38 +90,34 @@ class DisjSet{
 		*/
 		// A utility function to find the subset of an element i  
 		int find(int i)  
-			{  
-  			  if (this->set[i] == -1)  
-       		 	 return i;  
-    		  return find(this->set[i]);  
-			}  
+		{  
+			while(i != set[i])
+				i = set[i];
+			return i;
+		}  
   
 		
 		/**
 		* Merges together the sets that the given two elements belong to. 
-		* This method is also known as “union” in the literature. 
+		* This method is also known as ï¿½unionï¿½ in the literature. 
 		* If the two elements belong to different sets, then the two sets are merged and the method returns true. 
 		* Otherwise they belong in the same set, nothing is changed and the method returns false.
 		* Note that the arguments are orderless.
-		* @param index1: an index of first number.
-		* @param index2: an index of second number
-		* @retrun bool: true denotes that both numbers belongs to different sets and they are merged and false denotes that both number belongs to the same set. 
+		* @param node1: first node.
+		* @param node2: second node.  
 		*/
-		bool isUnion(int index1,int index2){
-			// if both already belongs to the same this.set
-			int xset = find(index1);  
-    		int yset = find(index2);  
-    		if(xset != yset) 
-    		  { 
-				cout<<"Included: "<<index1<<" "<<index2<<endl;
-       			this->set[xset] = yset;  
-       			return true;
-   			  } 
-			   else
-			     {
-				   cout<<"Not Included: "<<index1<<" "<<index2<<endl;
-					return true;	
-				}
+		void unite(int node1,int node2){
+			// find component of both nodes which these belongs
+			int a = find(node1);
+			int b = find(node2);
+
+			// join both sets if they are disjoint
+			if(size[a] < size[b]){
+				swap(a,b);
+			}
+
+			size[a] += size[b];
+			set[b] = a;
 		   }
 		
 		/**

@@ -17,12 +17,16 @@ using namespace std;
 int gcd(int a,int b){
 	if(b==0)
 		return a;
-	
+	cout<<"a: "<<a<<" b: "<<b<<endl;
 	return gcd(b,a%b);
 }
 // driver code
 int main(){
-	cout<<gcd(9,25);
+	cout<<"Started!...\n";
+	int a,b;
+	cin>>a>>b;
+	cout<<"GCD: "<<gcd(a,b);
+	cout<<"\n End---...\n";
 	return 0;
 }
 
