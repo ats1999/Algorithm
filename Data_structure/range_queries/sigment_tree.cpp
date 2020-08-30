@@ -26,17 +26,17 @@ using namespace std;
 int getSumInRange(int tree[],int start,int end,int queryStart,int queryEnd,int v){
     // three cases in the query
     // if query completely overlaped in the current sigment then it is going to contribute to the ans...
-    // if query do not overlaped then it is not going to contribute into the answer...
+    // if quer    y do not overlaped then it is not going to contribute into the answer...
     // if query partially overlapped then ask to the right and left chield..
 
     int mid=(start+end)/2;
 
     // no overlap
-    if(queryStart>end||queryEnd<start)
+    if(queryStart>end || queryEnd<start)
         return 0;
 
     // partial overlap
-    if(queryStart>start||queryEnd<end)
+    if(queryStart>start || queryEnd<end)
         return getSumInRange(tree,start,mid,queryStart,queryEnd,v*2+1)+getSumInRange(tree,mid+1,end,queryStart,queryEnd,v*2+2);
 
     // complete overlap

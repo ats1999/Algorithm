@@ -25,8 +25,8 @@ bool deb=true;
 #define ps(s) printf("%s\n",s)
 #define sd(n) scanf("%d",&n)
 // new line
-#define space printf(" ")
-#define line printf("\n")
+#define space cout<<" ";
+#define line cout<<endl;
 // vector
 #define bg begin()
 #define en end()
