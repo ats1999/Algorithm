@@ -91,14 +91,13 @@ int main(){
 	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\input.txt", "r", stdin);  
     #endif 
 	cout<<"Started\n";
-	cout<<('p'-'a'+1);
-//	int n;
-//	cin>>n;
-//	
-//	vector<int>primes;
-//	primes=sigmentedSieve(n);
-//	 for(int i:primes)
-//	 	cout<<i<<endl;
+	int n;
+	cin>>n;
+	
+	vector<int>primes;
+	primes=sigmentedSieve(n);
+	 for(int i:primes)
+	 	cout<<i<<endl;
 	cout<<"\nDone:)\n";
 	return 0;
 }
