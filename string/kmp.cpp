@@ -34,8 +34,6 @@ vector<int> piTable(string str){
 			j++;
 		pi[i] = j;
 	}
-	for(int i:pi)
-		cout<<i<<" "; cout<<endl;
 	return pi;
 }
 
@@ -55,8 +53,6 @@ void kmpPiNaive(string str){
 		}
 	}
 	
-	for(int i:pi)
-		cout<<i<<" ";
 }
 
 /**
@@ -73,11 +69,13 @@ vector<int> KMP(string  text, string pattern){
 		// if current character matched then advance both pointer
 		if(pattern[j] == text[i]){
 			i++; j++;
-		}else if(j!=0) j = pi[j-1];
+		}else if(j!=0) {
+			j = pi[j-1];
+		}else i++;
 		
 		// if j == p then pattern have been found in the text, store it's indecies
 		if(j==p){
-			matched_index.push_back(j);
+			matched_index.push_back(i-p);
 			j = pi[j-1];
 		}		
 	}
@@ -87,7 +85,7 @@ vector<int> KMP(string  text, string pattern){
 // driver code
 int main(){
 	// I/O
-	IOS;
+	//IOS;
 
     #ifndef ONLINE_JUDGE
 	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\input.txt", "r", stdin);
@@ -95,20 +93,18 @@ int main(){
 	cout<<"Started\n";
 	int T;
 	cin>>T;
-	string text;	cin>>text;
+	string text;	cin>>text; cout<<"Text: "<<text<<endl<<endl;
 	while(T--){
-		cout<<"_-------------_------------_--------_--------_\n";
 		string pattern;
-		cin>>pattern;
-		
-		cout<<"Text: "<<text<<endl; 
+		cin>>pattern;	
 		cout<<"Pattern: "<<pattern<<endl;
-				
 		vector<int>matched_index = KMP(text,pattern);
 		if(matched_index.size() == 0)
 			cout<<"Pattern not found\n";
+		else cout<<"Index..\n";
 		for(int i:matched_index)
 			cout<<i<<"\n";
+		cout<<endl<<endl;
 	}
 	cout<<"\nDone:)\n";
 	return 0;
