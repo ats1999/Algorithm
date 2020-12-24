@@ -22,12 +22,8 @@ void printAllSubstring(string str){
 
     for(int i=0; i<lenStr; i++){
         // iterate over lenStrgth of substrings
-        for(int lenSubStr=1; lenSubStr<=lenStr; lenSubStr++){
-            for(int j=i; j<lenSubStr; j++){
-                cout<<str[j];
-            }
-            if(i<lenSubStr)
-                cout<<", ";
+        for(int lenSubStr=1; lenSubStr<=lenStr-i; lenSubStr++){
+            cout<<str.substr(i,lenSubStr)<<" ";
         }
         cout<<endl;
     }
@@ -46,9 +42,8 @@ int main(){
 
     string str;
     cin>>str;
-
     // call the function
     printAllSubstring(str);
-	// cout<<"\nDone:)\n";
+	cout<<"\nDone:)\n";
 	return 0;
 }
