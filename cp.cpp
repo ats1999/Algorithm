@@ -13,6 +13,7 @@
 using namespace std;
 #define IOS ios::sync_with_stdio(false);cin.tie(nullptr)
 
+int t;
 // driver code
 int main(){
 	// I/O
@@ -22,7 +23,9 @@ int main(){
 	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\input.txt", "r", stdin);  
 	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\output.txt", "w", stdout); 
     #endif 
-	cout<<"Started\n";
-	cout<<"\nDone:)\n";
+	cin>>t;
+	while(t--){
+
+	}
 	return 0;
 }

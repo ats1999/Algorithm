@@ -1,104 +1,54 @@
-//============================================================================
-// Name        : .cpp
-// Author      : Rahul (ATS)
-// Version     : 2.0
-// cpp version : c++ 14
-// Copyright   : Everyone can freely use and distribute it.
-// Description : Implement sigment sieve algorithm.
-// T.C         : O()
-// A.S         : O()
-//============================================================================
-
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-#define IOS ios::sync_with_stdio(true);cin.tie(nullptr)
-/**
- * This function calculates primes number from 1 to sqrt(n) and returns a vector.
- * @param {n} - input range
- * @return {vector<int>} - vector containing all primes from 1 to sqrt(n)
- */
-vector<int> siveTillRoot(int n){
-	int nsqrt = sqrt(n);
+int const MAX = 1e5;
+int ar[MAX+1];
 
-	// calcuates primes till root of n
-	vector<int>primesTillRoot;
-	vector<int>isPrime(sqrt(n)+1,true);
-
-	for(int i=2; i<=nsqrt; i++){
-		if(isPrime[i]){
-			primesTillRoot.push_back(i);
-
-			// if i is a primes number then mark all multiples of i as non prime number
-			for(int j=i+i; j<=nsqrt; j+=i){
-				isPrime[j] = false;
-			}
-		}
-	}
-	return primesTillRoot;
+long long getMax(list<int>Q){
+    Q.sort([](int a, int b){
+        return a>b;
+    });
+    
+    long long c3=0,sum=0;
+    for(int i:Q){
+        if(c3==3) break;
+        sum+=i; c3++;
+    }
+    return sum;
 }
-/**
- * This function calculates primes number from 1 to n and returns a vector.
- * @param {n} - input range
- * @return {vector<int>} - vector containing all primes from 1 to n
- */
-vector<int> sigmentedSieve(int n){
-	// caculates primes till root
-	vector<int>primesTillRoot = siveTillRoot(n);
-	vector<int>primes;
-	
-	int blockSize = sqrt(n); // your convenience
-	bool primesInSigment[blockSize]; 
-	memset(primesInSigment,true,sizeof primesInSigment);
-	
-		// iterate over block of size blockSize			
-		for(int k=0; (k+1)*blockSize<=n; k++){
-			cout<<"===========================++++++++++++++++++++=================\n";			
-			cout<<"K: "<<k<<"\n";
-			int startIdx = k*blockSize+1;
-			int endIdx = (k+1)*blockSize;
-			printf("StartIdx=%d, endIdx=%d\n",startIdx,endIdx);
-			for(int i=startIdx;i<=endIdx;i++) cout<<i<<" "; cout<<endl;
-			// mark all the composite number as composite in the  current  block
-			for(int prime:primesTillRoot){
-				startIdx = startIdx - (startIdx % prime);
-				startIdx += prime;
-				
-				// starting number is prime then starting marking from next number 
-				if(startIdx == prime)
-					startIdx += startIdx;
-				cout<<"Prime: "<<prime<<" ->No prime-> ";
-				for(int i=startIdx; i<=endIdx; i+=prime){
-					primesInSigment[i-startIdx] = false;
-					cout<<(i-startIdx)<<" ";
-				}cout<<endl;
-			}
-			for(int i=1;i<blockSize; i++){
-				if(primesInSigment[i]){
-					primes.push_back(i+k*blockSize);
-					cout<<1<<" ";
-				}else cout<<0<<" ";
-			}cout<<endl;
-			memset(primesInSigment,true,sizeof primesInSigment);
-		}
-	return primes;
-}
-// driver code
-int main(){
-	// I/O
-	IOS;
-
-    #ifndef ONLINE_JUDGE 
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    int t,n;
+	#ifndef ONLINE_JUDGE 
 	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\input.txt", "r", stdin);  
+	    //freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\output.txt", "w", stdout); 
     #endif 
-	cout<<"Started\n";
-	cout<<('p'-'a'+1);
-//	int n;
-//	cin>>n;
-//	
-//	vector<int>primes;
-//	primes=sigmentedSieve(n);
-//	 for(int i:primes)
-//	 	cout<<i<<endl;
-	cout<<"\nDone:)\n";
+    cin>>t;
+    while(t--){
+        cin>>n;
+        for(int i=0; i<n; i++) cin>>ar[i];
+        
+        // create a list to store current friends
+        list<int>Q;
+        
+        // pust first five friends
+        Q.push_back(ar[0]); Q.push_back(ar[1]); Q.push_back(ar[2]); 
+        Q.push_back(ar[3]);
+        long long SUM = 0;
+        
+        for(int i=4; i<n; i++){
+            Q.push_back(ar[i]);
+            SUM = max(SUM,getMax(Q));
+            Q.pop_front();
+        }
+        cout<<endl;
+        // calculate rest of the circle
+        for(int i=0; i<5; i++){
+            Q.push_back(ar[i]);
+            SUM = max(SUM,getMax(Q));
+            Q.pop_front();
+        }
+        cout<<SUM<<endl;
+    }
 	return 0;
 }
