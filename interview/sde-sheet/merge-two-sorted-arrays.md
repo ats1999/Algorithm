@@ -1,3 +1,6 @@
+# M1
+Sort the first array by comparing elements from another array. After swaping sort the 2nd array.
+
 ```cpp
 class Solution{
     public:
