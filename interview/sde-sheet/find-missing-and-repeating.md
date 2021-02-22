@@ -23,3 +23,6 @@ missingNum = totalSum-(curSum-repetNum);
 // ----- //
 missingNum = 10-(9-3) = 4
 ```
+26
+**T.C**: O(n)
+**A.S**: O(1)
