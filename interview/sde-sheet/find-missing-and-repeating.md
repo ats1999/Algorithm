@@ -27,3 +27,6 @@ missingNum = 10-(9-3) = 4
 **T.C**: O(n)
 
 **A.S**: O(1)
+
+
+Decode XoR solution https://www.geeksforgeeks.org/find-a-repeating-and-a-missing-number/
