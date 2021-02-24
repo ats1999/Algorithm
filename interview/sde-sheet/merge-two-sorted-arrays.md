@@ -62,3 +62,8 @@ class Solution{
         } 
 };
 ```
+
+## FollowUp
+Solve in the below link **Another method in O(m+n) time complexity:**
+
+https://www.geeksforgeeks.org/efficiently-merging-two-sorted-arrays-with-o1-extra-space/
