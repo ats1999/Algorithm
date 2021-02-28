@@ -25,4 +25,5 @@ Then we can clearly say than there is some missing numbers b/w 4 and 7 which are
 4+2 = 6;
 ```
 **T.C** O(NlogN) - time to sort
+
 **A.S** O(N)
