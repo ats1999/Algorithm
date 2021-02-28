@@ -1,54 +1,75 @@
-#include <bits/stdc++.h>
-using namespace std;
-int const MAX = 1e5;
-int ar[MAX+1];
+//============================================================================
+// Name        : .cpp
+// Author      : Rahul (ATS)
+// Version     : 2.0
+// cpp version : c++ 14
+// Copyright   : Everyone can freely use and distribute it.
+// Description :
+// T.C         : O()
+// A.S         : O()
+//============================================================================
 
-long long getMax(list<int>Q){
-    Q.sort([](int a, int b){
-        return a>b;
-    });
-    
-    long long c3=0,sum=0;
-    for(int i:Q){
-        if(c3==3) break;
-        sum+=i; c3++;
-    }
-    return sum;
+#include<bits/stdc++.h>
+using namespace std;
+#define IOS ios::sync_with_stdio(false);cin.tie(nullptr)
+
+struct CTime{
+	int startTime;
+	int endTime;
+};
+
+string hhIn24(string hh,string format){
+	if(format.compare("PM")==0 && stoi(hh) != 0 && stoi(hh) != 12){
+		hh = to_string(stoi(hh)+12);
+	}else if(format.compare("AM") ==0 && stoi(hh) == 12){
+		hh="00";
+	}
+	return hh;
 }
-int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    int t,n;
-	#ifndef ONLINE_JUDGE 
+int extractTime(string timeStr){
+	string hh,mm,format;
+	hh = timeStr.substr(0,2);
+	mm = timeStr.substr(3,2);
+	format = timeStr.substr(6,2);
+	
+	// change hour value
+	// this is the only required value to change, to make it 24 hr format
+	hh = hhIn24(hh,format);
+	return stoi(hh+mm);
+}
+
+void extractCurTime(CTime *t,string timeStr){
+	// get start time
+	t->startTime = extractTime(timeStr.substr(0,8));
+	t->endTime = extractTime(timeStr.substr(9,8));
+}
+// driver code
+int main(){
+	// I/O
+	IOS;
+
+    #ifndef ONLINE_JUDGE 
 	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\input.txt", "r", stdin);  
-	    //freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\output.txt", "w", stdout); 
     #endif 
-    cin>>t;
-    while(t--){
-        cin>>n;
-        for(int i=0; i<n; i++) cin>>ar[i];
-        
-        // create a list to store current friends
-        list<int>Q;
-        
-        // pust first five friends
-        Q.push_back(ar[0]); Q.push_back(ar[1]); Q.push_back(ar[2]); 
-        Q.push_back(ar[3]);
-        long long SUM = 0;
-        
-        for(int i=4; i<n; i++){
-            Q.push_back(ar[i]);
-            SUM = max(SUM,getMax(Q));
-            Q.pop_front();
-        }
-        cout<<endl;
-        // calculate rest of the circle
-        for(int i=0; i<5; i++){
-            Q.push_back(ar[i]);
-            SUM = max(SUM,getMax(Q));
-            Q.pop_front();
-        }
-        cout<<SUM<<endl;
-    }
+    int t,N;
+	cin>>t;
+    string ptime,ctime;
+	CTime Ctime;
+	
+	while(t--){
+		int pt;
+        getline(cin>>ws,ptime);
+		pt = extractTime(ptime);
+		cin>>N;
+		for(int i=0; i<N; i++){
+			getline(cin>>ws,ctime);
+			extractCurTime(&Ctime,ctime);
+
+			if(Ctime.startTime <= pt && Ctime.endTime >= pt)
+				cout<<"1";
+			else cout<<"0";
+		}
+		cout<<endl;
+	}
 	return 0;
 }
