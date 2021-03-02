@@ -48,6 +48,10 @@ public:
         for(int i=0; i<len; i++){
             if(nums[i] != i+1) return i+1;
         }
+        
+        // case [1,2,3]
+        // []
+        // [1]
         return len+1;
     }
 };
