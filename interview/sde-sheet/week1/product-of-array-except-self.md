@@ -24,3 +24,61 @@ public:
     }
 };
 ```
+
+# Count number of zero
+In the given array, numbers of 0's could be
+```cpp
+[1,2,3]
+0 -> no zero in the array
+
+[4,0,5]
+1 -> one zero in the array
+
+[4,0,8,0]
+N -> more then one zero in the array
+```
+Output
+```cpp
+// no zero
+[1,2,3] -> [6,3,2]
+
+// one zero
+[4,0,5] -> [0,20,0]
+
+// N zero
+[4,0,8,0] -> [0,0,0,0]
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> productExceptSelf(vector<int>& nums) {
+        int len = nums.size();
+        long long p = 1,c0=0;
+        for(int i:nums){
+            if(i==0) 
+                c0++;
+            else p*=i;
+        }
+        
+        if(c0>1){
+            // make all 0
+            for(int i=0;i<len;i++)
+                nums[i] = 0;
+        }else if(c0==1){
+            // make all zero except where was zero
+             for(int i=0;i<len;i++){
+                 if(nums[i] == 0)
+                     nums[i] = p;
+                 else nums[i] = 0;
+             }
+        }else{
+             // there is no zero in input
+             for(int i=0;i<len;i++) 
+                 nums[i] = p/nums[i];
+        }
+        
+        return nums;
+    }
+};
+```
