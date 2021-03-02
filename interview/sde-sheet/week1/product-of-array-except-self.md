@@ -43,9 +43,11 @@ Output
 [1,2,3] -> [6,3,2]
 
 // one zero
+// at zero's position, put product of all elements except zero
 [4,0,5] -> [0,20,0]
 
 // N zero
+// all products will be zero
 [4,0,8,0] -> [0,0,0,0]
 ```
 
