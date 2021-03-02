@@ -49,9 +49,9 @@ public:
             if(nums[i] != i+1) return i+1;
         }
         
-        // case [1,2,3]
-        // []
-        // [1]
+        // case [1,2,3] -> 4
+        // [] -> 1
+        // [1] -> 2
         return len+1;
     }
 };
