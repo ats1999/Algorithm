@@ -1,3 +1,5 @@
+https://afteracademy.com/problems/recursive-insertion-sort
+
 ```cpp
 /**
  * @type of arr: integer array
@@ -6,7 +8,7 @@
 class Solution {
 public:
     void sortOne(vector<int>& ar,int idx){
-    	if(idx<0 || ar[idx-1]<ar[idx])
+    	if(idx<1 || ar[idx-1]<ar[idx])
             return;
         swap(ar[idx-1],ar[idx]);
         sortOne(ar,--idx);
