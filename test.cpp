@@ -13,35 +13,19 @@
 using namespace std;
 #define IOS ios::sync_with_stdio(false);cin.tie(nullptr)
 
-struct CTime{
-	int startTime;
-	int endTime;
-};
-
-string hhIn24(string hh,string format){
-	if(format.compare("PM")==0 && stoi(hh) != 0 && stoi(hh) != 12){
-		hh = to_string(stoi(hh)+12);
-	}else if(format.compare("AM") ==0 && stoi(hh) == 12){
-		hh="00";
+void printSubSet(int n, int ar[], bool mark[],vector<int>&subset){
+	if(subset.size() == n){
+		// print subset and return
+		return;
 	}
-	return hh;
-}
-int extractTime(string timeStr){
-	string hh,mm,format;
-	hh = timeStr.substr(0,2);
-	mm = timeStr.substr(3,2);
-	format = timeStr.substr(6,2);
-	
-	// change hour value
-	// this is the only required value to change, to make it 24 hr format
-	hh = hhIn24(hh,format);
-	return stoi(hh+mm);
-}
 
-void extractCurTime(CTime *t,string timeStr){
-	// get start time
-	t->startTime = extractTime(timeStr.substr(0,8));
-	t->endTime = extractTime(timeStr.substr(9,8));
+	for(int i=0; i<n; i++){
+		if(mark[i])
+			continue;
+		subset.push_back(ar[i]);
+		mark[i] = true;
+		subset.pop_back();
+	}
 }
 // driver code
 int main(){
@@ -50,26 +34,21 @@ int main(){
 
     #ifndef ONLINE_JUDGE 
 	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\input.txt", "r", stdin);  
+	    freopen("C:\\Users\\Rahul kumar\\desktop\\Algorithm\\output.txt", "w", stdout); 
     #endif 
-    int t,N;
+	int t;
 	cin>>t;
-    string ptime,ctime;
-	CTime Ctime;
-	
 	while(t--){
-		int pt;
-        getline(cin>>ws,ptime);
-		pt = extractTime(ptime);
-		cin>>N;
-		for(int i=0; i<N; i++){
-			getline(cin>>ws,ctime);
-			extractCurTime(&Ctime,ctime);
-
-			if(Ctime.startTime <= pt && Ctime.endTime >= pt)
-				cout<<"1";
-			else cout<<"0";
-		}
-		cout<<endl;
+		int n; cin>>n;
+		int ar[n];
+		bool mark[n];
+		memset(mark,0,sizeof mark);
+		vector<int>subset;
+		for(int i=0; i<n; i++)
+			cin>>ar[i];
+			
+		// print
+		printSubSet(n,ar,mark,subset);
 	}
 	return 0;
 }
