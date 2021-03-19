@@ -9,4 +9,9 @@ else
     dq.push_back({u,v});
 ```   
 
+https://www.scaler.com/academy/mentee-dashboard/classroom/analysing-the-time-complexity-88b02002-aa2d-459c-8e00-2383980ef095/#homework%2F4190
+
+https://afteracademy.com/blog/inversion-count-in-an-array
+
+merge sort, AVL Tree, BIT-optional 
 
