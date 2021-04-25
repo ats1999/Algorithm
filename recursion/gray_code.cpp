@@ -4,7 +4,7 @@
 // Version     : 2.0
 // cpp version : c++ 14
 // Copyright   : Everyone can freely use and distribute it.
-// Description :
+// Description : https://en.wikipedia.org/wiki/Gray_code
 // T.C         : O()
 // A.S         : O()
 //============================================================================
@@ -14,18 +14,30 @@ using namespace std;
 #define IOS ios::sync_with_stdio(false);cin.tie(nullptr)
 
 int t;
+
+void grayCode(int n,vector<int>&res){
+    if(n==1){
+        res.push_back(0);
+        res.push_back(1);
+        return;
+    }
+    grayCode(n-1,res);
+    int size = res.size();
+    int pw = 1<<(n-1);
+    for(int i=size-1; i>=0; i--){
+        res.push_back(pw+res[i]);
+    }
+}
 // driver code
 int main(){
 	// I/O
 	IOS;
 
-    #ifndef ONLINE_JUDGE 
-	    freopen("C:\\Users\\Rahul\\Desktop\\Algorithm\\input.txt", "r", stdin);  
-	    freopen("C:\\Users\\Rahul\\Desktop\\Algorithm\\output.txt", "w", stdout); 
-    #endif 
-	cin>>t;
-	while(t--){
-
-	}
+    int n; cin>>n;
+    vector<int>res;
+    grayCode(n,res);
+    for(int a:res){
+        cout<<a<<" ";
+    }
 	return 0;
 }
