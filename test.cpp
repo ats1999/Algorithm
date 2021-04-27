@@ -1,34 +1,28 @@
-#include <bits/stdc++.h>
+//============================================================================
+// Name        : .cpp
+// Author      : Rahul (ATS)
+// Version     : 2.0
+// cpp version : c++ 14
+// Copyright   : Everyone can freely use and distribute it.
+// Description :
+// T.C         : O()
+// A.S         : O()
+//============================================================================
+
+#include<bits/stdc++.h>
 using namespace std;
+#define IOS ios::sync_with_stdio(false);cin.tie(nullptr)
 
-void permutation(map<vector<int>,int>&hash, vector<int>&cur, int n, int size){
-    if(n==1){
-        vector<int>v(cur.begin(),cur.end());
-        if(hash.find(v) == hash.end()){
-            hash[v] = 1;
-        }
-        return;
-    }
-
-    for(int i=0; i<n; i++){
-        swap(cur[i],cur[n-1]);
-        permutation(hash,cur,n-1,size);
-        swap(cur[i],cur[n-1]);
-    }
-}
-
+// driver code
 int main(){
-    int n = 3;
-    vector<int>ar{1,1,2};
-    vector<vector<int>>res;
-    map<vector<int>,int>hash;
-    
-    permutation(hash,ar, n, n);
-    sort(res.begin(),res.end());
-    for(auto vect:hash){
-        for(int a:vect.first)
-            cout<<a<<" ";
+	// I/O
+	IOS;
+    vector<int>v{1,2,2};
+    do{
+        for(int i:v)
+            cout<<i<<" ";
+            cout<<endl;
+    }while(next_permutation(v.begin(),v.end()));
 
-        cout<<endl;
-    }
+	return 0;
 }
