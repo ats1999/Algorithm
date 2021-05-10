@@ -25,7 +25,7 @@ int main(){
     #endif 
 	cin>>t;
 	while(t--){
-
+		cout<<"Hello\n";
 	}
 	return 0;
 }

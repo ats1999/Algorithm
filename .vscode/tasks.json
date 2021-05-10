@@ -4,30 +4,16 @@
       {
         "type": "shell",
         "label": "C/C++: g++.exe build active file",
-        "command": "C:\\Program Files\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin\\g++.exe",
-        "args": ["-g", "${file}", "-o", "${fileDirname}\\${fileBasenameNoExtension}.exe"],
+        "command": "/usr/bin/g++",
+        "args": ["-g", "${file}", "-o", "${fileDirname}/${fileBasenameNoExtension}"],
         "options": {
-          "cwd": "${workspaceFolder}"
+          "cwd": "/usr/bin"
         },
         "problemMatcher": ["$gcc"],
         "group": {
           "kind": "build",
           "isDefault": true
         }
-      },{
-        "label": "Run task...",
-        "type": "process",
-        "command": "${fileDirname}\\${fileBasenameNoExtension}.exe",
-        "windows": {
-          "command": "${fileDirname}\\${fileBasenameNoExtension}.exe"
-        },
-        "group": "build",
-        "options": {
-          "cwd": "${workspaceFolder}"
-        },
-        "dependsOn":[
-          "C/C++: g++.exe build active file"
-        ]
       }
     ]
   }
