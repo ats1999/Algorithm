@@ -5,6 +5,6 @@ using namespace std;
 int main(){
     string name;
     cin>>name;
-    cout<<"You entered: "<<name;
+    cout<<"Nano entered: "<<name;
     return 0;
 }
