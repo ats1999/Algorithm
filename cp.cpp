@@ -20,8 +20,8 @@ int main(){
 	IOS;
 
     #ifndef ONLINE_JUDGE 
-	    freopen("C:\\Users\\Rahul\\Desktop\\Algorithm\\input.txt", "r", stdin);  
-	    freopen("C:\\Users\\Rahul\\Desktop\\Algorithm\\output.txt", "w", stdout); 
+	    freopen("/home/rahul/Desktop/Algorithm/input.txt", "r", stdin);  
+	    freopen("/home/rahul/Desktop/Algorithm/output.txt", "w", stdout); 
     #endif 
 	cin>>t;
 	while(t--){
