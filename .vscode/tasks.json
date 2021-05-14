@@ -5,7 +5,15 @@
         "type": "shell",
         "label": "C/C++: g++.exe build active file",
         "command": "/usr/bin/g++",
-        "args": ["-g", "${file}", "-o", "${fileDirname}/${fileBasenameNoExtension}"],
+        "args": ["-g", 
+          "${file}", 
+          "-o", 
+          "${fileDirname}/${fileBasenameNoExtension}",
+          "&&",
+          "clear",
+          "&&",
+          "${fileDirname}/${fileBasenameNoExtension}"
+        ],
         "options": {
           "cwd": "/usr/bin"
         },
