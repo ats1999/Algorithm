@@ -39,9 +39,9 @@ void insert_node(int position, int value) {
     for(int i=1; i<position-1; i++){
         tmp=tmp->next;
     }
-    
+
     if(tmp->next){
-        nn->next = tmp->next->next;
+        nn->next = tmp->next;
         tmp->next = nn;
     }else{
         tmp->next = nn;
@@ -78,7 +78,7 @@ void print_ll() {
     // Output each element followed by a space
     List *tmp=head;
     while(tmp){
-        cout<<tmp->val<<(tmp->next != NULL)?" ":"";
+        cout<<tmp->val<<((tmp->next != NULL)?" ":"");
         tmp = tmp->next;
     }
 }
@@ -93,7 +93,9 @@ int main(){
     #endif 
     insert_node(1,5);
     insert_node(1,9);
-    insert_node(1,7);
+    insert_node(2,7);
+    insert_node(3,45);
+    delete_node(4);
     print_ll();
 	return 0;
 }
