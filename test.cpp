@@ -10,44 +10,79 @@
 //============================================================================
 
 #include<bits/stdc++.h>
-#include <sys/types.h>
-#include <unistd.h>
 using namespace std;
 #define IOS ios::sync_with_stdio(false);cin.tie(nullptr)
 
-<<<<<<< HEAD
-int t;
-=======
-int getCount(vector<int>&pr, int size, int B){
-    int start = size, end = pr.size()-1;
-
-    while(start <= end){
-        int mid = (start+end)/2;
-        
-    }
-    return 9;
-}
-
-int solve(vector<int> &A, int B) {
-    sort(A.begin(), A.end());
-    
-    vector<int>pre(A.begin(), A.end());
-    for(int i=1; i<A.size(); i++){
-        pre[i] = pre[i]+pre[i-1];
+class List{
+    public:
+  int val;
+  List *next = NULL;
+  List(int val){
+      this->val = val;
+  }
+};
+List *head=NULL;
+void insert_node(int position, int value) {
+    List *nn = new List(value);
+    if(!head){
+        head = nn;
+        return;
     }
     
-    cout<<"Prefix: ";
-    for(int i:pre){
-        cout<<i<<" ";
-    }cout<<endl;
-
-    // for(int size=1; size<=A.size(); size++){
-        getCount(pre,2,B);
-    // }
-    return 0;
+    if(position == 1){
+        nn->next = head;
+        head = nn;
+        return;
+    }
+    
+    List *tmp = head;
+    for(int i=1; i<position-1; i++){
+        tmp=tmp->next;
+    }
+    
+    if(tmp->next){
+        nn->next = tmp->next->next;
+        tmp->next = nn;
+    }else{
+        tmp->next = nn;
+    }
 }
->>>>>>> parent of 6894721... less
-// driver code
+
+void delete_node(int position) {
+    if(position == 1){
+        List *tmp = head;
+        head = head->next;
+        delete tmp;
+        return;
+    }
+    
+    List *tmp=head;
+    for(int i=1; i<position-1; i++){
+        tmp = tmp->next;
+    }
+    
+    if(tmp->next->next){
+        // not last node;
+        List *tmp2 = tmp->next;
+        tmp->next = tmp->next->next;
+        delete tmp2;
+    }else{
+        List *tmp2 = tmp->next;
+        tmp->next = NULL;
+        delete tmp2;
+    }
+}
+
+
+void print_ll() {
+    // Output each element followed by a space
+    List *tmp=head;
+    while(tmp){
+        cout<<tmp->val<<(tmp->next != NULL)?" ":"";
+        tmp = tmp->next;
+    }
+}
+
 int main(){
 	// I/O
 	IOS;
@@ -56,6 +91,9 @@ int main(){
 	    freopen("/home/rahul/Desktop/Algorithm/input.txt", "r", stdin);  
 	    freopen("/home/rahul/Desktop/Algorithm/output.txt", "w", stdout); 
     #endif 
-	fork(); fork(); cout<<"Yes\n";
+    insert_node(1,5);
+    insert_node(1,9);
+    insert_node(1,7);
+    print_ll();
 	return 0;
 }
