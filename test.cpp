@@ -61,6 +61,7 @@ void delete_node(int position) {
         tmp = tmp->next;
     }
     
+    cout<<tmp->val<<endl;
     if(tmp->next->next){
         // not last node;
         List *tmp2 = tmp->next;
@@ -95,7 +96,8 @@ int main(){
     insert_node(1,9);
     insert_node(2,7);
     insert_node(3,45);
-    delete_node(4);
+    delete_node(2);
+    // insert_node(3,95);
     print_ll();
 	return 0;
 }
