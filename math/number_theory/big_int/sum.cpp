@@ -64,6 +64,7 @@ void sumBigInts(string a, string b, vector<int> &ans)
         carry = sum / 10;
     }
 
+    // if a_int has more numbers
     for (; idx < a_int.size(); idx++)
     {
         int sum = a_int[idx] + carry;
@@ -71,6 +72,7 @@ void sumBigInts(string a, string b, vector<int> &ans)
         carry = sum / 10;
     }
 
+    // if a_int has more numbers
     for (; idx < b_int.size(); idx++)
     {
         int sum = b_int[idx] + carry;

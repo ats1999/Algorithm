@@ -1,37 +1,32 @@
-//============================================================================
-// Name        : .cpp
-// Author      : Rahul (ATS)
-// Version     : 2.0
-// cpp version : c++ 14
-// Copyright   : Everyone can freely use and distribute it.
-// Description :
-// T.C         : O()
-// A.S         : O()
-//============================================================================
-
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-#define IOS ios::sync_with_stdio(false);cin.tie(nullptr)
+#define IOS                      \
+    ios::sync_with_stdio(false); \
+    cin.tie(nullptr)
+void file_io()
+{
+#ifndef ONLINE_JUDGE
+    freopen("/home/rahul/Desktop/Algorithm/input.txt", "r", stdin);
+    freopen("/home/rahul/Desktop/Algorithm/output.txt", "w", stdout);
+#endif
+}
 
+int main()
+{
+    IOS;
+    file_io();
 
-int main(){
-	// I/O
-	IOS;
-    int ar[] = {1,2,3,2,6,8,4,6};
-    int len = 8;
-    unordered_map<int,int>ump;
-    
-    for(int i=0; i<len; i++)
-        ump[ar[i]]++;
+    vector<int> a{1, 2, 3};
+    int *b;
+    b = &a;
+    b[1]=789;
+    for (int i : a)
+        cout << i << " ";
+    cout << endl;
 
-    int idx = 0;
-    for(auto var:ump){
-        if(var.second >= 2)
-            continue;
-        ar[idx++] = var.first;
-    }
+    for (int i : b)
+        cout << i << " ";
+    cout << endl;
 
-    for(int i=0; i<idx; i++)
-        cout<<ar[i]<<" ";
-	return 0;
+    return 0;
 }

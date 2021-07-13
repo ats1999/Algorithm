@@ -24,8 +24,9 @@ void file_io()
 
 int main()
 {
-	IOS;
-	file_io();
-
+	IOS; file_io(); int t; cin>>t;
+	while(t--){
+		
+	}
 	return 0;
 }
