@@ -85,8 +85,11 @@ void sumBigInts(string a, string b, vector<int> &ans)
     reverse(ans.begin(), ans.end());
 }
 
+// use num+'0' to convert number to character
+// use num-'0' to convert character to number
+
 // TODO: Optimization-1 (AS)
-//      answer can be stored into an string with the help of to_string() function
+//      answer can be stored into an string with the help of function
 //      this way we can save an array
 
 // TODO: Optimization-2 (AS)
