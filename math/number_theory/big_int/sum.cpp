@@ -4,9 +4,9 @@
 // Version     : 2.0
 // cpp version : c++ 14
 // Copyright   : Everyone can freely use and distribute it.
-// Description :
-// T.C         : O()
-// A.S         : O()
+// Description : https://www.tutorialspoint.com/sum-of-two-large-numbers-in-cplusplus
+// T.C         : O(N)
+// A.S         : O(N)
 //============================================================================
 
 #include <bits/stdc++.h>
