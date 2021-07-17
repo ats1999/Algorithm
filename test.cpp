@@ -74,7 +74,7 @@ int main()
         start++;
     }
 
-    int r = 3;
+    int r = 5;
     int n = sizeof(arr) / sizeof(arr[0]);
     vector<vector<int>> ans;
     printCombination(arr, n, r, ans);
