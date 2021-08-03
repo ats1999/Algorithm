@@ -1,10 +1,10 @@
 //============================================================================
-// Name        :
+// Name        : Division by 2
 // Author      : Rahul (ATS)
 // Version     : 2.0
 // cpp version : c++ 14
 // Copyright   : Everyone can freely use, contribute and distribute it.
-// Description :
+// Description : https://www.youtube.com/watch?v=SzfViApUBzw
 // T.C         : O()
 // A.S         : O()
 //============================================================================
@@ -23,7 +23,8 @@ void file_io(){
 int main(){
     IOS; file_io(); int t; cin>>t;
     while(t--){
-        cout<<"Hello\n";
+
+        
     }
     return 0;
 }
