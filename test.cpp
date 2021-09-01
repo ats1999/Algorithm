@@ -21,8 +21,11 @@ void file_io(){
 }
 
 int main(){
-    IOS; file_io(); 
-    cout<<(int)('1'-'0')<<endl;
-    cout<<(int)('0'-'0')<<endl;
+    IOS; file_io();
+    int a; cin>>a;
+    int t = a+5;
+    int b = t+5;
+    int ar[]={1,2,3,5};
+    vector<int>v{4,5,6};
     return 0;
 }
