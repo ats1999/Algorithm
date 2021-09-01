@@ -1,4 +1,1 @@
-NO
-YES
-NO
-YES
+1011

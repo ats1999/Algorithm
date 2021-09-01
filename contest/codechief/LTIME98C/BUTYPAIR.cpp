@@ -23,7 +23,21 @@ void file_io(){
 int main(){
     IOS; file_io(); int t; cin>>t;
     while(t--){
+        int n; cin>>n;
+        unordered_map<int,int>map;
+        for(int i=0; i<n; i++){
+            int temp; cin>>temp;
+            map[temp]++;
+        }
 
+        long long total = n*1ll*(n-1);
+        for(auto pair:map){
+            if(pair.second >= 2){
+                total -= (pair.second* 1ll * (pair.second-1));
+            }
+        }
+
+        cout<<total<<endl;
     }
     return 0;
 }
