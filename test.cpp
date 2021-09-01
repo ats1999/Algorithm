@@ -21,9 +21,8 @@ void file_io(){
 }
 
 int main(){
-    IOS; file_io(); int t; cin>>t;
-    while(t--){
-
-    }
+    IOS; file_io(); 
+    cout<<(int)('1'-'0')<<endl;
+    cout<<(int)('0'-'0')<<endl;
     return 0;
 }
