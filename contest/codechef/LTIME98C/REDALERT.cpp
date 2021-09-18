@@ -4,7 +4,7 @@
 // Version     : 2.0
 // cpp version : c++ 14
 // Copyright   : Everyone can freely use, contribute and distribute it.
-// Description :
+// Description : https://www.codechef.com/LTIME98C/problems/REDALERT
 // T.C         : O()
 // A.S         : O()
 //============================================================================
@@ -21,7 +21,31 @@ void file_io(){
 }
 
 int main(){
-    IOS; file_io();
-    cout<<"Hello1\n";
+    IOS; file_io(); int t; cin>>t;
+    while(t--){
+        int n,d,h; cin>>n>>d>>h;
+        int ar[n];
+
+        for(int i=0; i<n; i++) cin>>ar[i];
+
+        int total = 0;
+        bool isRedAlter = false;
+        for(int i=0; i<n; i++){
+            if(ar[i] == 0){
+                total = max(0, total-d);
+                continue;
+            }
+
+            total += ar[i];
+
+            if(total > h){
+                isRedAlter = true;
+            }
+        }
+
+        if(isRedAlter)
+            cout<<"YES\n";
+        else cout<<"NO\n";
+    }
     return 0;
 }
