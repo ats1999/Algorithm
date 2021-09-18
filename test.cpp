@@ -1,16 +1,17 @@
 //============================================================================
-// Name        :
+// Name        : .cpp
 // Author      : Rahul (ATS)
 // Version     : 2.0
-// cpp version : c++ 14
-// Copyright   : Everyone can freely use, contribute and distribute it.
+// cpp version : c++ 17
+// Copyright   : Everyone can freely use and distribute it.
 // Description :
 // T.C         : O()
 // A.S         : O()
 //============================================================================
 
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
+
 #define IOS ios::sync_with_stdio(false);cin.tie(nullptr)
 
 void file_io(){
@@ -21,7 +22,9 @@ void file_io(){
 }
 
 int main(){
-    IOS; file_io();
-    cout<<"Hello1\n";
+    IOS; file_io(); int t; cin>>t;
+    while(t--){
+
+    }
     return 0;
 }
