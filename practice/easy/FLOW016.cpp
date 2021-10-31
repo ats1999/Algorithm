@@ -4,7 +4,7 @@
 // Version     : 2.0
 // cpp version : c++ 17
 // Copyright   : Everyone can freely use and distribute it.
-// Description : https://www.codechef.com/problems/FRK
+// Description : https://www.codechef.com/problems/FLOW016
 // T.C         : O()
 // A.S         : O()
 //============================================================================
@@ -28,20 +28,11 @@ int main() {
     file_io();
     int t;
     cin >> t;
-    int ans = 0;
-
-    vector<string> subStrOfChef({"ch", "he", "ef", "che", "hef", "chef"});
-
     while (t--) {
-        string u;
-        cin >> u;
-        for (string subStr : subStrOfChef) {
-            if (u.find(subStr) != string::npos) {
-                ans++;
-                break;
-            }
-        }
+        int a, b;
+        cin >> a >> b;
+        int g = __gcd(a, b);
+        cout << g << " " << ((a * b) / g) << endl;
     }
-    cout << ans << endl;
     return 0;
 }
