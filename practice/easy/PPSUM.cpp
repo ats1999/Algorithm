@@ -4,7 +4,7 @@
 // Version     : 2.0
 // cpp version : c++ 17
 // Copyright   : Everyone can freely use and distribute it.
-// Description : https://www.codechef.com/problems/PRB01
+// Description : https://www.codechef.com/problems/PPSUM
 // T.C         : O()
 // A.S         : O()
 //============================================================================
@@ -23,30 +23,21 @@ void file_io() {
 #endif
 }
 
-bool isPrime(int n) {
-    if (n <= 1) return false;
-
-    if (n == 2) return true;
-
-    int sq = sqrt(n);
-
-    for (int i = 2; i <= sq; i++) {
-        if (n % i == 0) return false;
-    }
-
-    return true;
-}
-
 int main() {
     IOS;
     file_io();
     int t;
     cin >> t;
     while (t--) {
-        int n;
-        cin >> n;
+        int d, n;
+        cin >> d >> n;
 
-        cout<<(isPrime(n)?"yes":"no")<<endl;
+        int ans = n;
+        for (int i = 0; i < d; i++) {
+            ans = (ans * (ans + 1)) / 2;
+        }
+
+        cout << ans << endl;
     }
     return 0;
 }
