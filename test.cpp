@@ -24,6 +24,7 @@ void file_io() {
 }
 
 int main() {
-    cout << string::npos;
+    int ar[] = {5, 4, 3, 2, 1, 0};
+    cout << is_sorted(ar, ar + 6, [](int a, int b) { return a > b; });
     return 0;
 }
