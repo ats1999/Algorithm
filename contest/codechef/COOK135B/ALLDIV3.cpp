@@ -9,23 +9,22 @@
 // A.S         : O()
 //============================================================================
 
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
-bool isPerfect(int n) {
-    int sumDiv = 0, sq = ceil(sqrt(n));
-    for (int i = 1; i <= sq; i++) {
-        if (n % i != 0) continue;
+#define IOS ios::sync_with_stdio(false);cin.tie(nullptr)
 
-        sumDiv += i;
-    }
-    return sumDiv == n;
+void file_io(){
+#ifndef ONLINE_JUDGE
+    freopen("/home/rahul/Desktop/Algorithm/input.txt", "r", stdin);
+    freopen("/home/rahul/Desktop/Algorithm/output.txt", "w", stdout);
+#endif
 }
 
-int main() {
-    for(int i=1; i<=100; i++){
-        if(isPerfect(i))
-            cout<<i<<" ";
+int main(){
+    IOS; file_io(); int t; cin>>t;
+    while(t--){
+
     }
     return 0;
 }
