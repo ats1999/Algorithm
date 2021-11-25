@@ -22,12 +22,9 @@ void file_io(){
 }
 
 int main(){
-    bitset<5>bset;
-    bset[2] = 1;
-    bset[3]=1;
-    bset[4]=1;
-    for(char bit:bset.to_string())
-        cout<<bit<<"->";
-    cout<<bset.to_ulong();
+    IOS; file_io(); int t; cin>>t;
+    while(t--){
+
+    }
     return 0;
 }
