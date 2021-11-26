@@ -9,25 +9,23 @@
 // A.S         : O()
 //============================================================================
 
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-#define IOS ios::sync_with_stdio(false);cin.tie(nullptr)
+#define IOS                      \
+    ios::sync_with_stdio(false); \
+    cin.tie(nullptr)
 
-void file_io(){
+void file_io() {
 #ifndef ONLINE_JUDGE
     freopen("/home/rahul/Desktop/Algorithm/input.txt", "r", stdin);
     freopen("/home/rahul/Desktop/Algorithm/output.txt", "w", stdout);
 #endif
 }
 
-int main(){
-    bitset<5>bset;
-    bset[2] = 1;
-    bset[3]=1;
-    bset[4]=1;
-    for(char bit:bset.to_string())
-        cout<<bit<<"->";
-    cout<<bset.to_ulong();
+int main() {
+    bitset<5> bset("");
+    string str = "rahul"+3;
+    cout << str << endl;
     return 0;
 }

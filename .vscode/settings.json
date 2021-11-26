@@ -5,6 +5,7 @@
         "vector": "cpp",
         "random": "cpp",
         "iosfwd": "cpp",
-        "chrono": "cpp"
+        "chrono": "cpp",
+        "bitset": "cpp"
     }
 }
