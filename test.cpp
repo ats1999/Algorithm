@@ -24,8 +24,9 @@ void file_io() {
 }
 
 int main() {
-    bitset<5> bset("");
-    string str = "rahul"+3;
-    cout << str << endl;
+    IOS;
+    file_io();
+    vector<int>v{1,2,2,2,5,5,5,7,7};
+    cout<<upper_bound(v.begin(),v.end(),2)-v.begin();
     return 0;
 }
