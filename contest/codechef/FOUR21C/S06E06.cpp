@@ -23,9 +23,46 @@ void file_io() {
 #endif
 }
 
+vector<int> makeDigits(int n) {
+    vector<int> digits;
+
+    while (n) {
+        digits.push_back(n % 10);
+        n /= 10;
+    }
+    reverse(digits.begin(), digits.end());
+    return digits;
+}
+
+bool isPossible(vector<int>& digits) {
+    for (int d : digits)
+        if (d < 9) return true;
+
+    return false;
+}
+
 int main() {
     IOS;
     file_io();
-    cout<<(85%10);
+    int t;
+    cin >> t;
+    while (t--) {
+        int n, k;
+        cin >> n >> k;
+
+        vector<int> digits = makeDigits(n);
+
+        while (k && isPossible(digits)) {
+            int minIdx =
+                min_element(digits.begin(), digits.end()) - digits.begin();
+
+            digits[minIdx]++;
+            k--;
+        }
+        long long P = 1;
+        for (int d : digits) P *= (1ll * d);
+
+        cout<<P<<endl;
+    }
     return 0;
 }
