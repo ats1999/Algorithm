@@ -1,14 +1,3 @@
-//============================================================================
-// Name        : .cpp
-// Author      : Rahul (ATS)
-// Version     : 2.0
-// cpp version : c++ 17
-// Copyright   : Everyone can freely use and distribute it.
-// Description :
-// T.C         : O()
-// A.S         : O()
-//============================================================================
-
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -23,9 +12,23 @@ void file_io() {
 #endif
 }
 
+// [4,5,8,6,9,10,5] - 10,9
 int main() {
     IOS;
     file_io();
-    cout<<(85%10);
+    vector<int> ar{4,5,8,6,9,10,5};
+    int max1 = INT_MIN, max2 = INT_MIN;
+
+    for (int i = 0; i < ar.size(); i++) {
+        if (ar[i] > max1) {
+            max2 = max1;
+            max1 = ar[i];
+        } else if (ar[i] > max2 && ar[i] != max1) {
+            max2 = ar[i];
+        }
+    }
+
+    cout << "Max1 " << max1 << endl;
+    cout << "Max2 " << max2 << endl;
     return 0;
 }
