@@ -23,10 +23,20 @@ void file_io() {
 #endif
 }
 
-char W(int idx, string s){
-    for(int i=idx; i<s.length(); i++){
-        
+char W(int winner, string s) {
+    for (int i = winner + 1; i < s.length(); i++) {
+        if (s[i] == s[winner]) {
+            continue;
+        }
+
+        if ((s[winner] == 'S' && s[i] == 'R') ||
+            (s[winner] == 'R' && s[i] == 'P') ||
+            (s[winner] == 'P' && s[i] == 'S')) {
+            winner = i;
+        }
     }
+
+    return s[winner];
 }
 
 int main() {
@@ -40,11 +50,11 @@ int main() {
         string s;
         cin >> s;
         string ans = "";
-        for(int i=0; i<n; i++){
-            ans += W(i,s);
+        for (int i = 0; i < n; i++) {
+            ans += W(i, s);
         }
 
-        cout<<ans<<endl;
+        cout << ans << endl;
     }
     return 0;
 }
