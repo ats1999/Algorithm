@@ -1,3 +1,14 @@
+//============================================================================
+// Name        : .cpp
+// Author      : Rahul (ATS)
+// Version     : 2.0
+// cpp version : c++ 17
+// Copyright   : Everyone can freely use and distribute it.
+// Description :
+// T.C         : O()
+// A.S         : O()
+//============================================================================
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -12,23 +23,43 @@ void file_io() {
 #endif
 }
 
-// [4,5,8,6,9,10,5] - 10,9
+int minimumRefill(vector<int>& plants, int capacityA, int capacityB) {
+    int waterA = capacityA, waterB = capacityB;
+
+    int posA = 0, posB = plants.size() - 1;
+
+    int count = 0;
+    while (posA <= posB) {
+        if (posA == posB) {
+            if (plants[posA] > waterA && plants[posB] > waterB) count++;
+            break;
+        }
+
+        if (plants[posA] > waterA) {
+            waterA = capacityA;
+            count++;
+        }
+
+        if (plants[posB] > waterB) {
+            waterB = capacityB;
+            count++;
+        }
+
+        waterA -= plants[posA];
+        waterB -= plants[posB];
+
+        posA++;
+        posB--;
+    }
+    return count;
+}
 int main() {
     IOS;
     file_io();
-    vector<int> ar{4,5,8,6,9,10,5};
-    int max1 = INT_MIN, max2 = INT_MIN;
-
-    for (int i = 0; i < ar.size(); i++) {
-        if (ar[i] > max1) {
-            max2 = max1;
-            max1 = ar[i];
-        } else if (ar[i] > max2 && ar[i] != max1) {
-            max2 = ar[i];
-        }
-    }
-
-    cout << "Max1 " << max1 << endl;
-    cout << "Max2 " << max2 << endl;
+    int n, a, b;
+    cin >> n >> a >> b;
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) cin >> v[i];
+    cout << minimumRefill(v, a, b);
     return 0;
 }

@@ -23,6 +23,23 @@ void file_io() {
 #endif
 }
 
+void addHills(int n, string &ans) {
+    ans += "0";
+    n--;
+    while (n) {
+        ans += "010";
+        n--;
+    }
+}
+
+void addValleys(int n, string &ans) {
+    ans += "1";
+    n--;
+    while (n) {
+        ans += "101";
+        n--;
+    }
+}
 int main() {
     IOS;
     file_io();
@@ -31,31 +48,33 @@ int main() {
     while (t--) {
         int n, m;
         cin >> n >> m;
-
-        if (n == m && n == 1) {
-            cout << "1010\n";
-            continue;
-        }
-
-        if (n == m) {
-            string init = "1010";
-            while (--n > 0) {
-                init += "10";
-            }
-            cout << init << endl;
-            continue;
-        }
-
-        string result(m + n + 2, '0');
+        string ans = "";
         if (n > m) {
-            for (int i = 0; i < (m + n + 2); i += 2) result[i] = '0';
-            for (int i = 1; i < (m + n + 2); i += 2) result[i] = '1';
+            // start with hills
+            ans += "010";
+            n--;
         } else {
-            for (int i = 0; i < (m + n + 2); i += 2) result[i] = '1';
-            for (int i = 1; i < (m + n + 2); i += 2) result[i] = '0';
+            // start with valleys
+            ans += "101";
+            m--;
         }
 
-        cout << result << endl;
+        while (n && m) {
+            if (ans[ans.length() - 1] == '0') {
+                // add valley
+                ans += "1";
+                m--;
+            } else {
+                // add hill
+                ans += "0";
+                n--;
+            }
+        }
+
+        if (n) addHills(n, ans);
+        if (m) addValleys(m, ans);
+        cout << ans.length() << endl;
+        cout << ans << endl;
     }
     return 0;
 }
